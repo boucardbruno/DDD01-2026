@@ -1,85 +1,37 @@
-# Deep-Dive-into-Model-Driven-Design-Workshop
-*Refining Domain Models in Code*
+# DDD02 : Domain-Driven Design Avancé
 
-Have you implemented a software model but need help refining it effectively with new business constraints? Are you grappling with an initial domain model that, amidst changing business landscapes, seems more like an impediment than a help? Do you notice a growing disconnect between your code, the intricate complexities of your domain, and the core domain concepts?
+Appliquer collaborativement le design stratégique et tactique du problème à la solution.
 
-Embark on a journey with ‘Deep Dive into Model-Driven Design: Refining Domain Models in Code,’ an intensive workshop that immerses Java and C# developers in the transformative process of Eric Evans’s modeling whirlpool.
-This workshop is not just an exploration but a deep dive into Part III of Evans’s groundbreaking work on Domain-Driven Design (DDD). It is specifically designed for those looking to advance beyond basic concepts like aggregates, entities, and value objects.
+### Description
 
-## Target Audience
-The workshop’s language will be Java or C#. It is aimed at Software Developers and engineers with at least five years of experience.
+Dans de nombreux projets, les choix techniques précèdent souvent une compréhension approfondie des besoins métier, bien que le logiciel soit avant tout conçu pour résoudre des problèmes métier. La transition entre les découvertes métier, comme l'Event Storming, et le code soulève des questions pour beaucoup.
 
-## Tech Leads
+Le Domain-Driven Design (DDD) offre une approche méthodologique centrée sur la modélisation des systèmes selon la complexité des domaines métiers, particulièrement adaptée aux projets complexes.
 
-* Software or Solution Architects
-* Engineering Managers
-* Staff engineers
+Cette formation de deux jours couvre les concepts fondamentaux du DDD et son application tout au long du cycle de développement logiciel.
 
-## Topics
+### Module 1 – Découverte du domaine métier
 
-* Supple Design – Creating a flexible, cohesive, and easily maintainable domain model in code.
-* Deep Modeling – Accurately reflecting the complex realities and rules of the domain in code.
-* Refactoring toward deeper insight – Continuously improving and evolving the domain model
-* Design by coding – Refine the domain model through the coding process rather than having it extensively planned upfront.
+- Introduction au Domain-Driven Design
+- Exploration du problème avec un **Event Storming Big Picture**
+- Découpage en **sous-domaines** et création d'une **Context Map**
 
-## Program
+### Module 2 - Esquisser et explorer le modèle initial
 
-Dive deep into the complexities of Model-Driven Design and discover practical strategies beyond simple solutions to refine your Domain Model in Code. This approach guides you in developing a resilient, supple design that captures the actual intricacies of your domain and catalyzes significant breakthroughs in product development.
+- Transition de l'**Event Storming Big Picture** à l'**Event Storming Software Design**
+- Découverte des critères d'acceptation avec l'**Example Mapping**
+- Création du premier modèle avec les **cartes CRC**
+- Émergence des **patterns tactiques** du modèle
+- Exploration du modèle naïf via le **TDD Outside-in**
 
-Recognizing that many projects begin with simplistic models, which become limiting as complexity grows, this workshop starts with a Bounded Context derived from an EventStorming exercise.
-Participants will use Example Mapping and CRC-cards sessions to formalize acceptance criteria, sketching a ‘naive’ domain model for our defined bounded context. This is a launchpad for practical, hands-on coding experiences, where acceptance criteria guide Test-Driven Development (TDD) exercises in both C# and Java.
+### Module 3 – Model-Driven Design
 
-Participants will demystify the concepts of supple design and deep modeling through iterative refinement with new, unexpected requirements. The workshop will reveal practical strategies for ‘designing by coding, ‘ensuring that code remains aligned with the changing domain model.
-Attendees will learn to harness the full potential of Domain-Driven Design and Model-Driven Design, develop the skills to become domain experts as developers and start unlocking critical breakthroughs in product development.
+- Introduction au **Model-Driven Design** et au **Supple Design**
+- Intégration de règles métier complexes dans le code
+- **Deep Modeling** pour refléter fidèlement les réalités et règles du domaine
 
-## Agenda
+### Module 4 – Hexagonal Architecture
 
-### Module 1 – Software Design
-
-* How do we tackle software design today?
-* The true meaning of modeling, according to Eric Evans.
-* Collaboration in the Model Exploration Whirlpool
-* Introduction to our problem through an EventStorming outcome
-* Refreshment of the Bounded Context pattern
-
-### Module 2 – Sketching and probing the early model
-
-* Lab 1 – Discovering acceptance criteria through Example Mapping
-* Lab 2 – Sketching our early model with CRC-Cards
-* Emerging tactical patterns of the model
-* Lab 3 – Code probe the naive model through Outside-in TDD
-  
-### Module 3 – Supple design
-
-* How the code can become rigid to unexpected requirements
-* Lab 4 – Introducing new requirements we did not account for
-* Supple Design – Creating a flexible, cohesive, and easily maintainable domain model in code
-
-### Module 4 – Deep modeling
-
-* How the code can be left behind from the domain model
-* Lab 5 – Introducing more complex business rules in the code
-* Deep Modeling – Accurately reflecting the complex realities and rules of the domain in code
-
-### Module 5 – Refactoring to deeper insights
-
-* Refactoring toward deeper insight – Continuously improving and evolving the domain model
-* When to collaborate with domain experts
-* Lab 6 – Prototype and Design by Coding through advanced deep modeling
-* Complexity – when do we need all this?
-
-## About the instructors
-
-### Kenny Baas-Schwegler
-Kenny Baas-Schwegler believes in collaborative software design where ‘every voice shapes the software.’ Leveraging a domain-driven design approach, Kenny facilitates more transparent communication between stakeholders and software creators by collaborative modeling and deep democracy, decoding complexities, resolving conflicts, and ensuring software remains agile to business demands.
-
-As an independent software consultant, tech lead, and software architect, Kenny catalyzes organizations and teams to design and build sustainable and resilient software architectures.
-
-### Bruno Boucard
-Bruno Boucard is an Agile and technical coach and speaker who specializes in collaborative modeling within organizations. His expertise extends to the tactical side, focusing on transforming complex problems into clear, code-based solutions.
-
-Consultant, trainer, and speaker for OCTO Technology. He is the leader of the BDD Paris & Play Agile user group. A long-time Microsoft MVP, he still codes Java, Python, and C++ with an occasional emphasis on C#.
-
-He started coding on a TRS 80 machine in the 1980s and loves explaining things with concrete examples and, if necessary, live coding.  He is the leader of the BDD Paris & Play Agile user group.
-
-A long-time Microsoft MVP, he still codes Java, Python, and C++, occasionally emphasizing C#.
+- Réorganisation du code pour isoler le domaine de l'infrastructure.
+- Intégration des patterns au sein des services.
+- Service prêt pour la mise en production.
