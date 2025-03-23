@@ -1,4 +1,4 @@
-package org.weaveit.seatssuggestionsacceptancetests;
+package org.weaveit.seatingplacesuggestions;
 
 public class SeatingPlace {
 
@@ -13,14 +13,17 @@ public class SeatingPlace {
         this.pricingCategory = pricingCategory;
         this.seatingPlaceAvailability = seatingPlaceAvailability;
     }
-
     public boolean isAvailable() {
-        return seatingPlaceAvailability == SeatingPlaceAvailability.Available;
+        return seatingPlaceAvailability == SeatingPlaceAvailability.AVAILABLE;
     }
 
+    public boolean matchCategory(PricingCategory pricingCategory) {
+        return this.pricingCategory == pricingCategory;
+    }
 
-    public void updateCategory(SeatingPlaceAvailability seatingPlaceAvailability) {
-        this.seatingPlaceAvailability = seatingPlaceAvailability;
+    public void allocate() {
+        if (seatingPlaceAvailability == SeatingPlaceAvailability.AVAILABLE)
+            seatingPlaceAvailability = SeatingPlaceAvailability.ALLOCATED;
     }
 
     @Override
@@ -28,4 +31,3 @@ public class SeatingPlace {
         return rowName + number;
     }
 }
-

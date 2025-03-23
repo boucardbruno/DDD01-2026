@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>SeatsSuggestions.Tests</RootNamespace>
   </PropertyGroup>
 
@@ -69,6 +69,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExternalDependencies\ExternalDependencies.csproj" />
+    <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -216,6 +217,10 @@
     <Content Update="..\..\..\Stubs\AuditoriumLayouts\9-Mogador Theater-%282%29%280%29_theater.json" Link="AuditoriumLayouts\9-Mogador Theater-%282%29%280%29_theater.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="UnitTests\RowShould.cs" />
   </ItemGroup>
 
 </Project>

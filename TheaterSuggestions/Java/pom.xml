@@ -15,11 +15,22 @@
 
     <modules>
         <module>ExternalDependencies</module>
+        <module>ScreeningSeatingArrangementSuggestions</module>
         <module>ScreeningSeatingArrangementSuggestionsAcceptanceTests</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.weaveit</groupId>
+                <artifactId>ScreeningSeatingArrangementSuggestions</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.weaveit</groupId>
+                <artifactId>ScreeningSeatingArrangementSuggestionsAcceptanceTests</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.weaveit</groupId>
                 <artifactId>ExternalDependencies</artifactId>

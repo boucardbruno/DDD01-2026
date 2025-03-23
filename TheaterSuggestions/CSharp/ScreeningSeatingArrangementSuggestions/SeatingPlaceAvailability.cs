@@ -1,8 +1,8 @@
-﻿namespace SeatsSuggestions.Tests;
+﻿namespace SeatsSuggestions;
 
 public enum SeatingPlaceAvailability
 {
     Reserved,
     Available,
-    Suggested
+    Allocated
 }

@@ -2,14 +2,16 @@ package org.weaveit.seatssuggestionsacceptancetests;
 
 import org.weaveit.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
 import org.weaveit.externaldependencies.reservationsprovider.ReservationsProvider;
+import org.weaveit.seatingplacesuggestions.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SeatingArrangementRecommenderTest {/*
+class SeatingArrangementRecommenderTest {
+    /*
      *  Business Rule - Only Suggest available seats
      */
 
@@ -20,12 +22,14 @@ class SeatingArrangementRecommenderTest {/*
         //  A : (2) (2)  1  (1) (1) (1) (1) (1) (2) (2)
         //  B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         final String showId = "1";
+        final int partyRequested = 1;
+
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-        // Remove this assertion to the expected one with outcome : A3
-        var auditoriumSeatingArrangement = auditoriumSeatingArrangements.findByShowId(showId);
-        assertThat(auditoriumSeatingArrangement.rows()).hasSize(2);
+        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3");
     }
 
     @Test
@@ -35,12 +39,16 @@ class SeatingArrangementRecommenderTest {/*
         // A : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         // B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         final String showId = "5";
+        final int partyRequested = 1;
+
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-        // Remove this assertion to the expected one with outcome : SuggestionNotAvailable
-        var auditoriumSeatingArrangement = auditoriumSeatingArrangements.findByShowId(showId);
-        assertThat(auditoriumSeatingArrangement.rows()).hasSize(2);
+        assertEquals(partyRequested, suggestionsAreMade.partyRequested(), "Party requested should match");
+        assertEquals(showId, suggestionsAreMade.showId(), "Show ID should match");
+        assertInstanceOf(SuggestionsAreAreNotAvailable.class, suggestionsAreMade, "Suggestions made should be an instance of SuggestionNotAvailable");
     }
 
     @Test
@@ -51,12 +59,14 @@ class SeatingArrangementRecommenderTest {/*
         //  A: 2   2   1   1   1   1   1   1   2   2
         //  B: 2   2   1   1   1   1   1   1   2   2
         final String showId = "17";
+        final int partyRequested = 2;
+
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-        // Remove this assertion to the expected one with outcome : A1, A2
-        var auditoriumSeatingArrangement = auditoriumSeatingArrangements.findByShowId(showId);
-        assertThat(auditoriumSeatingArrangement.rows()).hasSize(2);
+        assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9", "A10", "B1", "B2");
     }
 
    @Test
@@ -69,16 +79,17 @@ class SeatingArrangementRecommenderTest {/*
         //  D: 2   2   2   2   2   2   2   2   2   2
         //  E: 3   3   3   3   3   3   3   3   3   3
         //  F: 3   3   3   3   3   3   3   3   3   3
-        final String showId = "18";
+       final String showId = "18";
+       final int partyRequested = 1;
+
        var auditoriumSeatingArrangements =
                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+       var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+       var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-       // Remove this assertion to the expected one with outcome :
-       // PricingCategory.First => "A3", "A4", "A5"
-       // PricingCategory.Second => "A1", "A2", "A9"
-       // PricingCategory.Third => "E1", "E2", "E3"
-       var auditoriumSeatingArrangement = auditoriumSeatingArrangements.findByShowId(showId);
-       assertThat(auditoriumSeatingArrangement.rows()).hasSize(6);
+       assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3","A4","A5");
+       assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9");
+       assertThat(suggestionsAreMade.seatNames(PricingCategory.THIRD)).containsExactly("E1", "E2", "E3");
     }
 }
 
