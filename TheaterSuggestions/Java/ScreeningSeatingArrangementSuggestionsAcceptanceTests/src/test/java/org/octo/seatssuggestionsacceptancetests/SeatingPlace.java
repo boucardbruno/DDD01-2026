@@ -1,4 +1,4 @@
-package org.weaveit.seatssuggestionsacceptancetests;
+package org.octo.seatssuggestionsacceptancetests;
 
 public class SeatingPlace {
 
