@@ -11,6 +11,10 @@ public class Row {
         this.seatingPlaces = seatingPlaces;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public SeatingOptionIsSuggested suggestSeatingOption(int partyRequested, PricingCategory pricingCategory) {
 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
@@ -26,5 +30,6 @@ public class Row {
         }
         return new SeatingOptionIsNotAvailable(partyRequested, pricingCategory);
     }
+
 
 }
