@@ -23,6 +23,11 @@ public class SeatingPlace(
 
     public bool MatchCategory(PricingCategory pricingCategory)
     {
+        if (pricingCategory == PricingCategory.Ignored)
+        {
+            return true;
+        }
+        
         return PricingCategory == pricingCategory;
     }
 

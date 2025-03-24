@@ -18,6 +18,9 @@ public class SeatingPlace {
     }
 
     public boolean matchCategory(PricingCategory pricingCategory) {
+        if (pricingCategory == PricingCategory.IGNORED) {
+            return true;
+        }
         return this.pricingCategory == pricingCategory;
     }
 

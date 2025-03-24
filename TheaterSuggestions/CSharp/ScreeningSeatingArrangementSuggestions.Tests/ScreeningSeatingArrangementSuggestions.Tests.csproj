@@ -219,8 +219,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="UnitTests\RowShould.cs" />
-  </ItemGroup>
-
 </Project>

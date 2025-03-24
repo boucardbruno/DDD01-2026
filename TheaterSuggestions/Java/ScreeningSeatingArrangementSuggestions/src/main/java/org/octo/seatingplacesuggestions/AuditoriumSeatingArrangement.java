@@ -20,4 +20,8 @@ public class AuditoriumSeatingArrangement {
 
         return new SeatingOptionIsNotAvailable(partyRequested, pricingCategory);
     }
+
+    public Map<String, Row> getRows() {
+        return rows;
+    }
 }

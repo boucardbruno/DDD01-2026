@@ -90,6 +90,8 @@ class SeatingArrangementRecommenderTest {
        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3","A4","A5");
        assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9");
        assertThat(suggestionsAreMade.seatNames(PricingCategory.THIRD)).containsExactly("E1", "E2", "E3");
+       // Fix this bug!
+       assertThat(suggestionsAreMade.seatNames(PricingCategory.IGNORED)).containsExactly("A1", "A2", "A3");
     }
 }
 

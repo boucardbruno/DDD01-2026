@@ -6,6 +6,10 @@ public class Row {
     private final String name;
     private final List<SeatingPlace> seatingPlaces;
 
+    public List<SeatingPlace> getSeatingPlaces() {
+        return seatingPlaces;
+    }
+
     public Row(String name, List<SeatingPlace> seatingPlaces) {
         this.name = name;
         this.seatingPlaces = seatingPlaces;
