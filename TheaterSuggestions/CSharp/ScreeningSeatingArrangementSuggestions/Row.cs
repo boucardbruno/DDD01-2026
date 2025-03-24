@@ -1,6 +1,8 @@
-﻿namespace SeatsSuggestions;
+﻿using Value;
 
-public class Row(string name, List<SeatingPlace> seats)
+namespace SeatsSuggestions;
+
+public class Row(string name, List<SeatingPlace> seats) : ValueType<Row>
 {
     public string Name { get; } = name;
     public List<SeatingPlace> SeatingPlaces { get; } = seats;
@@ -20,8 +22,30 @@ public class Row(string name, List<SeatingPlace> seats)
         return new SeatingOptionIsNotAvailable(partyRequested, pricingCategory);
     }
 
-    public void AddSeat(SeatingPlace seatingPlace)
+    public Row AddSeatingPlace(SeatingPlace seatingPlace)
     {
-        SeatingPlaces.Add(seatingPlace);
+        return new Row(Name, [..SeatingPlaces, seatingPlace]);
+    }
+
+    protected override IEnumerable<object> GetAllAttributesToBeUsedForEquality()
+    {
+        return [Name, new ListByValue<SeatingPlace>(SeatingPlaces)];
+    }
+
+    public Row Allocate(SeatingPlace seatingPlacesSuggested)
+    {
+        var seatingPlaces = new List<SeatingPlace>();
+        foreach (var seatingPlace in SeatingPlaces)
+        {
+            if (seatingPlacesSuggested.IsSameLocation(seatingPlace))
+            {
+                seatingPlaces.Add(seatingPlacesSuggested.Allocate());
+            }
+            else
+            {
+                seatingPlaces.Add(seatingPlace);
+            }
+        }
+        return new Row(Name, seatingPlaces);
     }
 }

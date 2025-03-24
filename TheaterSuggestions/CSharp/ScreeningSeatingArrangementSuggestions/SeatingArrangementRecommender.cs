@@ -13,6 +13,7 @@ public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditor
         suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.First));
         suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Second));
         suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Third));
+        suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Ignored));
 
         if (suggestionsMade.MatchExpectations()) return suggestionsMade;
 
@@ -31,10 +32,7 @@ public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditor
 
             if (seatingOptionSuggested.MatchExpectation())
             {
-                foreach (var seat in seatingOptionSuggested.Seats)
-                {
-                    seat.Allocate();
-                }
+                auditoriumSeatingArrangement = auditoriumSeatingArrangement.Allocate(seatingOptionSuggested.Seats);
 
                 foundedSuggestions.Add(new SuggestionIsMade(seatingOptionSuggested));
             }
