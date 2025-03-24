@@ -1,7 +1,7 @@
-package org.weaveit.externaldependencies;
+package org.octo.externaldependencies;
 
-import org.weaveit.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
-import org.weaveit.externaldependencies.reservationsprovider.ReservationsProvider;
+import org.octo.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
+import org.octo.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

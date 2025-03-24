@@ -1,4 +1,4 @@
-package org.weaveit.seatingplacesuggestions;
+package org.octo.seatingplacesuggestions;
 
 public class SeatingOptionIsNotAvailable extends SeatingOptionIsSuggested {
     public SeatingOptionIsNotAvailable(int partyRequested, PricingCategory pricingCategory) {

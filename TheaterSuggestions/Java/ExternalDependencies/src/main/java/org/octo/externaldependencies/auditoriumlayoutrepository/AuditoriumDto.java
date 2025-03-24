@@ -1,4 +1,4 @@
-package org.weaveit.externaldependencies.auditoriumlayoutrepository;
+package org.octo.externaldependencies.auditoriumlayoutrepository;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

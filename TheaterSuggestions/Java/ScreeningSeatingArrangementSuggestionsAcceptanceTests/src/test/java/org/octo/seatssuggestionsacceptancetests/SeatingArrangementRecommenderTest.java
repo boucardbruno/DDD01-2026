@@ -1,8 +1,8 @@
-package org.weaveit.seatssuggestionsacceptancetests;
+package org.octo.seatssuggestionsacceptancetests;
 
-import org.weaveit.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
-import org.weaveit.externaldependencies.reservationsprovider.ReservationsProvider;
-import org.weaveit.seatingplacesuggestions.*;
+import org.octo.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
+import org.octo.externaldependencies.reservationsprovider.ReservationsProvider;
+import org.octo.seatingplacesuggestions.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
