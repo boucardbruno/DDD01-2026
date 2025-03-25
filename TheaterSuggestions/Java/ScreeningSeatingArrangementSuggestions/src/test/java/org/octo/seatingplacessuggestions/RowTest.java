@@ -111,6 +111,7 @@ public class RowTest {
     public void offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
     {
         var partySize = 2;
+        var pricingCategory = PricingCategory.IGNORED;
 
         var a1 = new SeatingPlace("A", 1, PricingCategory.SECOND, SeatingPlaceAvailability.AVAILABLE);
         var a2 = new SeatingPlace("A", 2, PricingCategory.SECOND, SeatingPlaceAvailability.AVAILABLE);
@@ -134,13 +135,14 @@ public class RowTest {
 
         var seatingPlacesWithDistance = offerSeatsNearerTheMiddleOfTheRow(row);
 
-        var offerAdjacentSeatingPlaces = offerAdjacentSeatingPlace(seatingPlacesWithDistance, partySize);
+
+        var offerAdjacentSeatingPlaces = offerAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partySize);
         assertThat(offerAdjacentSeatingPlaces)
                 .containsExactly(a5, a6);
     }
 
     // Start with a prototype
-    private List<SeatingPlace> offerAdjacentSeatingPlace(List<SeatingPlaceWithDistance> seatingPlacesWithDistance, int partySize)
+    private List<SeatingPlace> offerAdjacentSeatingPlace(List<SeatingPlaceWithDistance> seatingPlacesWithDistance, PricingCategory pricingCategory, int partySize)
     {
         var potentialAdjacentSeats = new ArrayList<SeatingPlaceWithDistance>();
         var groupsOfAdjacentSeats = new ArrayList<GroupOfAdjacentSeats>();
@@ -149,6 +151,7 @@ public class RowTest {
                         new SeatingPlace("Z", -1, PricingCategory.IGNORED, SeatingPlaceAvailability.ALLOCATED), -1);
 
         List<SeatingPlaceWithDistance> seatingPlaceWithDistances = seatingPlacesWithDistance.stream()
+                .filter(s -> s.SeatingPlace().matchCategory(pricingCategory))
                 .filter(s -> s.SeatingPlace().isAvailable())
                 .sorted(Comparator.comparing(s -> s.SeatingPlace().number())).toList();
 
@@ -208,10 +211,7 @@ public class RowTest {
                 .sorted(Comparator.comparing(GroupOfAdjacentSeats::SumOfDistance))
                 .toList();
 
-        return bestOfGroupOfAdjacentSeats.stream()
-                .flatMap(group -> group.SeatingPlaces().stream())
-                .sorted(Comparator.comparing(SeatingPlace::number))
-                .toList();
+        return bestOfGroupOfAdjacentSeats.get(0).SeatingPlaces();
     }
 
     // -----------------------------------------------
