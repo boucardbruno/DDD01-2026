@@ -1,5 +1,7 @@
 package org.octo.seatingplacessuggestions.seatingplacesuggestions;
 
+import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+
 import java.util.*;
 
 public class SuggestionsAreMade {
@@ -16,7 +18,8 @@ public class SuggestionsAreMade {
     }
 
     public List<String> seatNames(PricingCategory pricingCategory) {
-        return forCategory.get(pricingCategory).stream().map(SuggestionIsMade::seatNames).flatMap(Collection::stream).toList();
+        return forCategory.get(pricingCategory).stream()
+                .map(SuggestionIsMade::seatNames).flatMap(Collection::stream).toList();
     }
 
     private void instantiateAnEmptyListForEveryPricingCategory() {
