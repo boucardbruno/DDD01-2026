@@ -1,7 +1,12 @@
 package org.octo.seatingplacessuggestions.seatingplacesuggestions;
 
+import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
+import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow.offerSeatsNearerTheMiddleOfTheRow;
 
 public record Row(String name, List<SeatingPlace> seatingPlaces) {
 
@@ -9,7 +14,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
 
-        for (var seat : offerAdjacentSeatsNearerTheMiddleOfRow(seatingPlaces, partyRequested, pricingCategory)) {
+        for (var seat : offerAdjacentSeatsNearerTheMiddleOfRow(partyRequested, pricingCategory)) {
             if (seat.isAvailable() && seat.matchCategory(pricingCategory)) {
                 seatAllocation.addSeat(seat);
 
@@ -37,8 +42,20 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
         });
         return new Row(name, newSeatingPlaces);
     }
-    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(List<SeatingPlace> seatingPlaces, int partyRequested, PricingCategory pricingCategory)
+
+    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(int partyRequested, PricingCategory pricingCategory)
     {
-        return seatingPlaces;
+        var seatingPlacesWithDistance = offerSeatsNearerTheMiddleOfTheRow(this);
+
+        if (partyRequested > 1) {
+            return offerAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partyRequested);
+        }
+
+        return seatingPlacesWithDistance.stream()
+                .map(SeatingPlaceWithDistance::SeatingPlace)
+                .filter(s -> s.matchCategory(pricingCategory))
+                .filter(SeatingPlace::isAvailable)
+                .limit(partyRequested)
+                .toList();
     }
 }

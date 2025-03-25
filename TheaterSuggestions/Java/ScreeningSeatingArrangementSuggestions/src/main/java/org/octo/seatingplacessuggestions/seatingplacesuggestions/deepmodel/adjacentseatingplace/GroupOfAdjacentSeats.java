@@ -1,4 +1,4 @@
-package org.octo.seatingplacessuggestions;
+package org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.adjacentseatingplace;
 
 import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
 
