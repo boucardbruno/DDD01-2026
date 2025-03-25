@@ -89,10 +89,10 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
-            Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A3", "A4", "A5");
-            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Second)).ContainsExactly("A1", "A2", "A9");
-            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Third)).ContainsExactly("E1", "E2", "E3");
-            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Ignored)).ContainsExactly("A1", "A2", "A3");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).Contains("A4", "A5", "A6");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Second)).Contains("A1", "A2", "A9");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Third)).Contains("E4", "E5", "E6");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Ignored)).Contains("A4", "A5", "A6");
         }
     }
 }

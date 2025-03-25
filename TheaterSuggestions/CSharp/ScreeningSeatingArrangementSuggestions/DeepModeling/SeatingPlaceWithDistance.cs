@@ -1,0 +1,3 @@
+﻿namespace SeatsSuggestions.DeepModeling;
+
+public record SeatingPlaceWithDistance(SeatingPlace SeatingPlace, int DistanceFromTheMiddleOfTheRow);

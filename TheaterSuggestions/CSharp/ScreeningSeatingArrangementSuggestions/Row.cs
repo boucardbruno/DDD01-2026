@@ -1,22 +1,27 @@
-﻿using Value;
+﻿using SeatsSuggestions.DeepModeling.AdjacentSeatingPlace;
+using SeatsSuggestions.DeepModeling.MiddleOfTheRow;
+using Value;
 
 namespace SeatsSuggestions;
 
-public class Row(string name, List<SeatingPlace> seats) : ValueType<Row>
+public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
 {
-    public string Name { get; } = name;
-    public List<SeatingPlace> SeatingPlaces { get; } = seats;
+    private string Name { get; } = name;
+    public List<SeatingPlace> SeatingPlaces { get; } = seatingPlaces;
 
     public SeatingOptionIsSuggested SuggestSeatingOption(int partyRequested, PricingCategory pricingCategory)
     { 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
         
-        foreach (var seat in SeatingPlaces)
+        foreach (var seat in OfferAdjacentSeatsNearerTheMiddleOfRow(partyRequested, pricingCategory))
         {
             if (seat.IsAvailable() && seat.MatchCategory(pricingCategory))
             {
                 seatAllocation.AddSeat(seat);
-                if (seatAllocation.MatchExpectation()) return seatAllocation;
+                if (seatAllocation.MatchExpectation())
+                {
+                    return seatAllocation;
+                }
             }
         }
         return new SeatingOptionIsNotAvailable(partyRequested, pricingCategory);
@@ -34,18 +39,31 @@ public class Row(string name, List<SeatingPlace> seats) : ValueType<Row>
 
     public Row Allocate(SeatingPlace seatingPlacesSuggested)
     {
-        var seatingPlaces = new List<SeatingPlace>();
-        foreach (var seatingPlace in SeatingPlaces)
-        {
-            if (seatingPlacesSuggested.IsSameLocation(seatingPlace))
-            {
-                seatingPlaces.Add(seatingPlacesSuggested.Allocate());
-            }
-            else
-            {
-                seatingPlaces.Add(seatingPlace);
-            }
-        }
+        var seatingPlaces = SeatingPlaces.Select(seatingPlace => seatingPlacesSuggested.IsSameLocation(seatingPlace)
+                ? seatingPlacesSuggested.Allocate()
+                : seatingPlace)
+            .ToList();
+        
         return new Row(Name, seatingPlaces);
+    }
+    
+    private IEnumerable<SeatingPlace> OfferAdjacentSeatsNearerTheMiddleOfRow(int partyRequested, PricingCategory pricingCategory)
+    {
+        var offerSeatsNearerTheMiddleOfTheRow = TheMiddleOfTheRow.OfferSeatsNearerTheMiddleOfTheRow(this);
+
+        if (partyRequested > 1)
+        {
+            var offerAdjacentSeatsNearerTheMiddleOfRow = AdjacentSeatingPlaces
+                .OfferAdjacentSeatingPlace(offerSeatsNearerTheMiddleOfTheRow, pricingCategory, partyRequested);
+            
+            return offerAdjacentSeatsNearerTheMiddleOfRow;
+        }
+
+        return offerSeatsNearerTheMiddleOfTheRow.OrderBy(s => s.DistanceFromTheMiddleOfTheRow)
+            .Select(s => s.SeatingPlace)
+            .Where(s => s.MatchCategory(pricingCategory))
+            .Where(s => s.IsAvailable())
+            .Take(partyRequested)
+            .ToList();
     }
 }

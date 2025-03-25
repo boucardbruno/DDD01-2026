@@ -20,7 +20,11 @@ public class SuggestionsAreMade
 
     public IEnumerable<string> SeatNames(PricingCategory pricingCategory)
     {
-        return ForCategory[pricingCategory].SelectMany(s => s.SeatNames());
+        var seatingPlaces = ForCategory[pricingCategory]
+            .SelectMany(s => s.SuggestedSeats).OrderBy(s => s.RowName)
+            .ToList();
+        
+        return seatingPlaces.Select(s => s.ToString());
     }
 
     private void InstantiateAnEmptyListForEveryPricingCategory()

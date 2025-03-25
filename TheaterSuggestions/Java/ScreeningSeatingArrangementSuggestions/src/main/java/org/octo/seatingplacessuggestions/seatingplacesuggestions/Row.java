@@ -9,7 +9,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
 
-        for (var seat : seatingPlaces) {
+        for (var seat : offerAdjacentSeatsNearerTheMiddleOfRow(seatingPlaces, partyRequested, pricingCategory)) {
             if (seat.isAvailable() && seat.matchCategory(pricingCategory)) {
                 seatAllocation.addSeat(seat);
 
@@ -37,5 +37,8 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
         });
         return new Row(name, newSeatingPlaces);
     }
-
+    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(List<SeatingPlace> seatingPlaces, int partyRequested, PricingCategory pricingCategory)
+    {
+        return seatingPlaces;
+    }
 }
