@@ -3,6 +3,7 @@ package org.octo.seatingplacessuggestions.seatingplacesuggestions;
 import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
@@ -52,6 +53,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
         }
 
         return seatingPlacesWithDistance.stream()
+                .sorted(Comparator.comparing(SeatingPlaceWithDistance::DistanceFromTheMiddleOfTheRow))
                 .map(SeatingPlaceWithDistance::SeatingPlace)
                 .filter(s -> s.matchCategory(pricingCategory))
                 .filter(SeatingPlace::isAvailable)

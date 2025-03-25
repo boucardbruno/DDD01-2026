@@ -21,7 +21,7 @@ public class SuggestionsAreMade
     public IEnumerable<string> SeatNames(PricingCategory pricingCategory)
     {
         var seatingPlaces = ForCategory[pricingCategory]
-            .SelectMany(s => s.SuggestedSeats).OrderBy(s => s.RowName)
+            .SelectMany(s => s.SuggestedSeats)
             .ToList();
         
         return seatingPlaces.Select(s => s.ToString());
