@@ -64,6 +64,7 @@ public class RowShould
     public void Offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
     {
         var partySize = 2;
+        var pricingCategory = PricingCategory.Ignored;
 
         var a1 = new SeatingPlace("A", 1, PricingCategory.Second, SeatingPlaceAvailability.Available);
         var a2 = new SeatingPlace("A", 2, PricingCategory.Second, SeatingPlaceAvailability.Available);
@@ -84,7 +85,7 @@ public class RowShould
 
         var seatingPlacesWithDistance = OfferSeatsNearerTheMiddleOfTheRow(row);
 
-        var offerAdjacentSeatingPlaces = OfferAdjacentSeatingPlace(seatingPlacesWithDistance, partySize);
+        var offerAdjacentSeatingPlaces = OfferAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partySize);
         Check.That(offerAdjacentSeatingPlaces)
             .ContainsExactly(a5, a6);
     }
@@ -176,7 +177,7 @@ public class RowShould
     // DeepModeling - Adjacent seats
     // ------------------------------
     private IEnumerable<SeatingPlace> OfferAdjacentSeatingPlace(
-        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, int partySize)
+        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, PricingCategory pricingCategory, int partySize)
     {
         var potentialAdjacentSeats = new List<SeatingPlaceWithDistance>();
         var groupsOfAdjacentSeats = new List<GroupOfAdjacentSeats>();
@@ -186,7 +187,9 @@ public class RowShould
 
         foreach (var seatingPlaceWithDistance in seatingPlacesWithDistances
                      .OrderBy(seatingPlaceWithDistance => seatingPlaceWithDistance.SeatingPlace.Number)
-                     .Where(s => s.SeatingPlace.IsAvailable()))
+                     .Where(s => s.SeatingPlace.IsAvailable())
+                     .Where(s => s.SeatingPlace.MatchCategory(pricingCategory))
+                 )
         {
             if (seatingPlacesWithDistancePrevious.AreAdjacentSeats(seatingPlaceWithDistance))
             {
