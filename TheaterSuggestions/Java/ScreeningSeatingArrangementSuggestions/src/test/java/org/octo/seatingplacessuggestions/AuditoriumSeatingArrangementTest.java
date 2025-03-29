@@ -5,6 +5,7 @@ import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutre
 import org.octo.seatingplacessuggestions.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.octo.seatingplacessuggestions.seatingplacesuggestions.AuditoriumSeatingArrangements;
 import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.seatingplacesuggestions.ShowID;
 
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class AuditoriumSeatingArrangementTest {
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
 
-        String showIdWithoutReservationYet = "18";
+        ShowID showIdWithoutReservationYet = new ShowID("18");
         var auditoriumSeatingFirstInstance =
                 auditoriumSeatingArrangements.findByShowId(showIdWithoutReservationYet);
         var auditoriumSeatingSecondInstance =

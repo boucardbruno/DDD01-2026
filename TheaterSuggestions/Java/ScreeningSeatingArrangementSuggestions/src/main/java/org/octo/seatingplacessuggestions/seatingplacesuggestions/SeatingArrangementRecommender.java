@@ -11,7 +11,7 @@ public class SeatingArrangementRecommender {
         this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
     }
 
-    public SuggestionsAreMade makeSuggestion(ShowID showId, int partyRequested) {
+    public SuggestionsAreMade makeSuggestion(ShowID showId, PartyRequested partyRequested) {
 
         var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
 
@@ -27,7 +27,7 @@ public class SeatingArrangementRecommender {
     }
 
     private static List<SuggestionIsMade> giveMeSuggestionsFor(
-            AuditoriumSeatingArrangement auditoriumSeatingArrangement, int partyRequested, PricingCategory pricingCategory) {
+            AuditoriumSeatingArrangement auditoriumSeatingArrangement, PartyRequested partyRequested, PricingCategory pricingCategory) {
         var foundedSuggestions = new ArrayList<SuggestionIsMade>();
 
         for (int i = 0; i < NUMBER_OF_SUGGESTIONS; i++) {

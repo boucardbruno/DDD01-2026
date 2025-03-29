@@ -1,9 +1,6 @@
 package org.octo.seatingplacessuggestions.seatssuggestionsacceptancetests;
 
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.AuditoriumSeatingArrangements;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.PricingCategory;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingArrangementRecommender;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SuggestionsAreAreNotAvailable;
+import org.octo.seatingplacessuggestions.seatingplacesuggestions.*;
 import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
 import org.octo.seatingplacessuggestions.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.junit.jupiter.api.Test;
@@ -24,8 +21,8 @@ class SeatingArrangementRecommenderTest {
         //       1   2   3   4   5   6   7   8   9  10
         //  A : (2) (2)  1  (1) (1) (1) (1) (1) (2) (2)
         //  B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
-        final String showId = "1";
-        final int partyRequested = 1;
+        final ShowID showId = new ShowID("1");
+        final PartyRequested partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -41,8 +38,8 @@ class SeatingArrangementRecommenderTest {
         //      1   2   3   4   5   6   7   8   9  10
         // A : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         // B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
-        final String showId = "5";
-        final int partyRequested = 1;
+        final ShowID showId = new ShowID("5");
+        final PartyRequested partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -61,8 +58,8 @@ class SeatingArrangementRecommenderTest {
         //     1   2   3   4   5   6   7   8   9  10
         //  A: 2   2   1   1   1   1   1   1   2   2
         //  B: 2   2   1   1   1   1   1   1   2   2
-        final String showId = "17";
-        final int partyRequested = 2;
+        final ShowID showId = new ShowID("17");
+        final PartyRequested partyRequested = new PartyRequested(2);
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -82,8 +79,8 @@ class SeatingArrangementRecommenderTest {
         //  D: 2   2   2   2   2   2   2   2   2   2
         //  E: 3   3   3   3   3   3   3   3   3   3
         //  F: 3   3   3   3   3   3   3   3   3   3
-       final String showId = "18";
-       final int partyRequested = 1;
+       final ShowID showId = new ShowID("18");
+       final PartyRequested partyRequested = new PartyRequested(1);
 
        var auditoriumSeatingArrangements =
                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -96,5 +93,3 @@ class SeatingArrangementRecommenderTest {
        assertThat(suggestionsAreMade.seatNames(PricingCategory.IGNORED)).containsExactly("A5", "A6", "A4");
     }
 }
-
-

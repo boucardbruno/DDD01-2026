@@ -1,16 +1,14 @@
 package org.octo.seatingplacessuggestions.seatingplacesuggestions;
 
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
-
 import java.util.*;
 
 public class SuggestionsAreMade {
-    private final String showId;
-    private final int partyRequested;
+    private final ShowID showId;
+    private final PartyRequested partyRequested;
 
     private final Map<PricingCategory, List<SuggestionIsMade>> forCategory = new HashMap<>();
 
-    public SuggestionsAreMade(String showId, int partyRequested) {
+    public SuggestionsAreMade(ShowID showId, PartyRequested partyRequested) {
         this.showId = showId;
         this.partyRequested = partyRequested;
 
@@ -36,11 +34,11 @@ public class SuggestionsAreMade {
         return forCategory.values().stream().flatMap(List::stream).anyMatch(SuggestionIsMade::matchExpectation);
     }
 
-    public String showId() {
+    public ShowID showId() {
         return showId;
     }
 
-    public int partyRequested() {
+    public PartyRequested partyRequested() {
         return partyRequested;
     }
 }

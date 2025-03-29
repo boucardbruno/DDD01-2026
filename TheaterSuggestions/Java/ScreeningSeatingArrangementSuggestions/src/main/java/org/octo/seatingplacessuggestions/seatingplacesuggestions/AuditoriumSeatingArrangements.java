@@ -22,9 +22,9 @@ public class AuditoriumSeatingArrangements {
         this.reservedSeatsRepository = reservationsProvider;
     }
 
-    public AuditoriumSeatingArrangement findByShowId(String showId) {
-        return adapt(auditoriumLayoutRepository.findByShowId(showId),
-                reservedSeatsRepository.getReservedSeats(showId));
+    public AuditoriumSeatingArrangement findByShowId(ShowID showId) {
+        return adapt(auditoriumLayoutRepository.findByShowId(showId.id()),
+                reservedSeatsRepository.getReservedSeats(showId.id()));
 
     }
 

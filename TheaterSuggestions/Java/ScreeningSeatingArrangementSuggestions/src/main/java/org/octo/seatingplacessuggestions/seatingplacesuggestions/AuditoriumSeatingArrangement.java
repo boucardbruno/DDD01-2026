@@ -10,7 +10,7 @@ public record AuditoriumSeatingArrangement(Map<String, Row> rows) {
         return rows;
     }
 
-    public SeatingOptionIsSuggested suggestSeatingOptionFor(int partyRequested, PricingCategory pricingCategory) {
+    public SeatingOptionIsSuggested suggestSeatingOptionFor(PartyRequested partyRequested, PricingCategory pricingCategory) {
         for (Row row : rows.values()) {
             var seatingOptionSuggested = row.suggestSeatingOption(partyRequested, pricingCategory);
 

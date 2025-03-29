@@ -11,7 +11,7 @@ import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmode
 
 public record Row(String name, List<SeatingPlace> seatingPlaces) {
 
-    public SeatingOptionIsSuggested suggestSeatingOption(int partyRequested, PricingCategory pricingCategory) {
+    public SeatingOptionIsSuggested suggestSeatingOption(PartyRequested partyRequested, PricingCategory pricingCategory) {
 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
 
@@ -44,12 +44,12 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
         return new Row(name, newSeatingPlaces);
     }
 
-    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(int partyRequested, PricingCategory pricingCategory)
+    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested, PricingCategory pricingCategory)
     {
         var seatingPlacesWithDistance = offerSeatsNearerTheMiddleOfTheRow(this);
 
-        if (partyRequested > 1) {
-            return offerAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partyRequested);
+        if (partyRequested.partySize() > 1) {
+            return offerAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partyRequested.partySize());
         }
 
         return seatingPlacesWithDistance.stream()
@@ -57,7 +57,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
                 .map(SeatingPlaceWithDistance::SeatingPlace)
                 .filter(s -> s.matchCategory(pricingCategory))
                 .filter(SeatingPlace::isAvailable)
-                .limit(partyRequested)
+                .limit(partyRequested.partySize())
                 .toList();
     }
 }

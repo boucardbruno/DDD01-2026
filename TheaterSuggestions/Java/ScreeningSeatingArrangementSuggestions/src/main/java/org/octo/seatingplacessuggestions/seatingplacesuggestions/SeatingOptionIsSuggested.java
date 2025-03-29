@@ -7,9 +7,9 @@ public class SeatingOptionIsSuggested {
 
     private final PricingCategory pricingCategory;
     private final List<SeatingPlace> seats = new ArrayList<>();
-    private final int partyRequested;
+    private final PartyRequested partyRequested;
 
-    public SeatingOptionIsSuggested(int partyRequested, PricingCategory pricingCategory) {
+    public SeatingOptionIsSuggested(PartyRequested partyRequested, PricingCategory pricingCategory) {
         this.pricingCategory = pricingCategory;
         this.partyRequested = partyRequested;
     }
@@ -19,7 +19,7 @@ public class SeatingOptionIsSuggested {
     }
 
     public boolean matchExpectation() {
-        return seats.size() == partyRequested;
+        return seats.size() == partyRequested.partySize();
     }
 
     public List<SeatingPlace> seats() {
@@ -28,5 +28,5 @@ public class SeatingOptionIsSuggested {
 
     public PricingCategory pricingCategory() { return pricingCategory; }
 
-    public int partyRequested() { return partyRequested; }
+    public PartyRequested partyRequested() { return partyRequested; }
 }

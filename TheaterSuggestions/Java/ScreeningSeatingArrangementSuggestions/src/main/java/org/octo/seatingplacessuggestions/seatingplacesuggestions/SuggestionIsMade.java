@@ -5,7 +5,7 @@ import java.util.List;
 public class SuggestionIsMade {
 
     private final List<SeatingPlace> suggestedSeats;
-    private final int partyRequested;
+    private final PartyRequested partyRequested;
     private final PricingCategory pricingCategory;
 
     public SuggestionIsMade(SeatingOptionIsSuggested seatingOptionIsSuggested) {
@@ -19,7 +19,7 @@ public class SuggestionIsMade {
     }
 
     public boolean matchExpectation() {
-        return suggestedSeats.size() == partyRequested;
+        return suggestedSeats.size() == partyRequested.partySize();
     }
 
     public PricingCategory pricingCategory() {
