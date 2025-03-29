@@ -78,7 +78,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowShould
     [Test]
     public void Offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
     {
-        var partySize = 2;
+        PartyRequested partySize = new PartyRequested(2);
         var pricingCategory = PricingCategory.Ignored;
 
         var a1 = new SeatingPlace("A", 1, PricingCategory.Second, SeatingPlaceAvailability.Available);

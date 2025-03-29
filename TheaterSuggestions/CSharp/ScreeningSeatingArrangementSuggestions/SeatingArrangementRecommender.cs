@@ -4,16 +4,16 @@ public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditor
 {
     private const int NumberOfSuggestions = 3;
 
-    public SuggestionsAreMade MakeSuggestions(string showId, int partyRequested)
+    public SuggestionsAreMade MakeSuggestions(ShowId showId, PartyRequested partyRequested)
     {
         var auditoriumSeating = auditoriumSeatingArrangements.FindByShowId(showId);
 
         var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
-
-        suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.First));
-        suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Second));
-        suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Third));
-        suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, PricingCategory.Ignored));
+        
+        foreach (var pricingCategory in Enum.GetValues<PricingCategory>())
+        {
+            suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));     
+        }
 
         if (suggestionsMade.MatchExpectations()) return suggestionsMade;
 
@@ -21,7 +21,7 @@ public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditor
     }
 
     private static IEnumerable<SuggestionIsMade> GiveMeSuggestionsFor(AuditoriumSeatingArrangement auditoriumSeatingArrangement,
-        int partyRequested,
+        PartyRequested partyRequested,
         PricingCategory pricingCategory)
     {
         var foundedSuggestions = new List<SuggestionIsMade>();

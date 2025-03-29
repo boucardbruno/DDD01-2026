@@ -6,7 +6,7 @@ public class AuditoriumSeatingArrangement(Dictionary<string, Row> rows) : Value.
 {
     public IReadOnlyDictionary<string, Row> Rows => rows;
 
-    public SeatingOptionIsSuggested SuggestSeatingOptionFor(int partyRequested, PricingCategory pricingCategory)
+    public SeatingOptionIsSuggested SuggestSeatingOptionFor(PartyRequested partyRequested, PricingCategory pricingCategory)
     {
         foreach (var row in rows.Values)
         {

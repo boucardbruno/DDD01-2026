@@ -3,7 +3,7 @@
 public static class AdjacentSeatingPlaces
 {
     public static IEnumerable<SeatingPlace> OfferAdjacentSeatingPlace(
-        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, PricingCategory pricingCategory, int partySize)
+        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, PricingCategory pricingCategory, PartyRequested partyRequested)
     {
         var potentialAdjacentSeats = new List<SeatingPlaceWithDistance>();
         var groupsOfAdjacentSeats = new List<GroupOfAdjacentSeats>();
@@ -33,7 +33,7 @@ public static class AdjacentSeatingPlaces
 
             seatingPlacesWithDistancePrevious = seatingPlaceWithDistance;
 
-            if (partySize.Matches(potentialAdjacentSeats))
+            if (partyRequested.Party.Matches(potentialAdjacentSeats))
             {
                 seatingPlacesWithDistancePrevious =
                     groupsOfAdjacentSeats.AddGroupOfPlaceWithDistances(potentialAdjacentSeats);

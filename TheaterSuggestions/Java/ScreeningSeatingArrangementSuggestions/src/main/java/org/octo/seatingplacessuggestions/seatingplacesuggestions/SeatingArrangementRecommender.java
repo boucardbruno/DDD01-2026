@@ -11,22 +11,17 @@ public class SeatingArrangementRecommender {
         this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
     }
 
-    public SuggestionsAreMade makeSuggestion(String showId, int partyRequested) {
+    public SuggestionsAreMade makeSuggestion(ShowID showId, int partyRequested) {
+
         var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
 
         var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
 
-        suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested,
-                PricingCategory.FIRST));
-        suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested,
-                PricingCategory.SECOND));
-        suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested,
-                PricingCategory.THIRD));
-        suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested,
-                PricingCategory.IGNORED));
+        for (var pricingCategory : PricingCategory.values()) {
+            suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
+        }
 
-        if (suggestionsMade.matchExpectations())
-            return suggestionsMade;
+        if (suggestionsMade.matchExpectations()) return suggestionsMade;
 
         return new SuggestionsAreAreNotAvailable(showId, partyRequested);
     }

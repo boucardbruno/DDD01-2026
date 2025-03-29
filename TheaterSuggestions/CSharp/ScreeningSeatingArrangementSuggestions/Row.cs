@@ -9,7 +9,7 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
     private string Name { get; } = name;
     public List<SeatingPlace> SeatingPlaces { get; } = seatingPlaces;
 
-    public SeatingOptionIsSuggested SuggestSeatingOption(int partyRequested, PricingCategory pricingCategory)
+    public SeatingOptionIsSuggested SuggestSeatingOption(PartyRequested partyRequested, PricingCategory pricingCategory)
     { 
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
         
@@ -47,11 +47,11 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
         return new Row(Name, seatingPlaces);
     }
     
-    private IEnumerable<SeatingPlace> OfferAdjacentSeatsNearerTheMiddleOfRow(int partyRequested, PricingCategory pricingCategory)
+    private IEnumerable<SeatingPlace> OfferAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested, PricingCategory pricingCategory)
     {
         var offerSeatsNearerTheMiddleOfTheRow = TheMiddleOfTheRow.OfferSeatsNearerTheMiddleOfTheRow(this);
 
-        if (partyRequested > 1)
+        if (partyRequested.Party > 1)
         {
             var offerAdjacentSeatsNearerTheMiddleOfRow = AdjacentSeatingPlaces
                 .OfferAdjacentSeatingPlace(offerSeatsNearerTheMiddleOfTheRow, pricingCategory, partyRequested);
@@ -64,7 +64,7 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
             .Select(s => s.SeatingPlace)
             .Where(s => s.MatchCategory(pricingCategory))
             .Where(s => s.IsAvailable())
-            .Take(partyRequested)
+            .Take(partyRequested.Party)
             .ToList();
     }
 }

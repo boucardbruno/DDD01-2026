@@ -5,16 +5,15 @@
 /// </summary>
 public class SuggestionsAreMade
 {
-    public SuggestionsAreMade(string showId, int partyRequested)
+    public SuggestionsAreMade(ShowId showId, PartyRequested partyRequested)
     {
         ShowId = showId;
         PartyRequested = partyRequested;
-
         InstantiateAnEmptyListForEveryPricingCategory();
     }
 
-    public string ShowId { get; }
-    public int PartyRequested { get; }
+    public ShowId ShowId { get; }
+    public PartyRequested PartyRequested { get; }
 
     private Dictionary<PricingCategory, List<SuggestionIsMade>> ForCategory { get; } = new();
 
@@ -30,7 +29,7 @@ public class SuggestionsAreMade
     private void InstantiateAnEmptyListForEveryPricingCategory()
     {
         foreach (PricingCategory pricingCategory in Enum.GetValues(typeof(PricingCategory)))
-            ForCategory[pricingCategory] = new List<SuggestionIsMade>();
+            ForCategory[pricingCategory] = [];
     }
 
     public void Add(IEnumerable<SuggestionIsMade> suggestions)

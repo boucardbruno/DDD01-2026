@@ -14,7 +14,7 @@ public class AuditoriumSeatingArrangementsShould
     {
         var auditoriumLayoutAdapter =
             new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-        var showIdWithoutReservationYet = "18";
+        var showIdWithoutReservationYet = new ShowId("18");
         var auditoriumSeatingFirstInstance =
             auditoriumLayoutAdapter.FindByShowId(showIdWithoutReservationYet);
         var auditoriumSeatingSecondInstance =

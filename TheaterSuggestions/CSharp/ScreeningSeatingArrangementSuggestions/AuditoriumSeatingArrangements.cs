@@ -7,10 +7,10 @@ public class AuditoriumSeatingArrangements(
     AuditoriumLayoutRepository auditoriumLayoutRepository,
     ReservationsProvider reservationsProvider)
 {
-    public AuditoriumSeatingArrangement FindByShowId(string showId)
+    public AuditoriumSeatingArrangement FindByShowId(ShowId showId)
     {
-        return Adapt(auditoriumLayoutRepository.GetAuditoriumLayoutFor(showId),
-            reservationsProvider.GetReservedSeats(showId));
+        return Adapt(auditoriumLayoutRepository.GetAuditoriumLayoutFor(showId.Identifier),
+            reservationsProvider.GetReservedSeats(showId.Identifier));
     }
 
     private static AuditoriumSeatingArrangement Adapt(AuditoriumDto auditoriumDto, ReservedSeatsDto reservedSeatsDto)

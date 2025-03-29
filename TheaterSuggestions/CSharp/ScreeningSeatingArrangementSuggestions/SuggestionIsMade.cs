@@ -7,7 +7,7 @@ public class SuggestionIsMade(SeatingOptionIsSuggested seatingOptionIsSuggested)
 {
     private readonly List<SeatingPlace> _suggestedSeats = seatingOptionIsSuggested.Seats;
 
-    public int PartyRequested { get; } = seatingOptionIsSuggested.PartyRequested;
+    public PartyRequested PartyRequested { get; } = seatingOptionIsSuggested.PartyRequested;
     public PricingCategory PricingCategory { get; } = seatingOptionIsSuggested.PricingCategory;
 
     public IReadOnlyList<SeatingPlace> SuggestedSeats => _suggestedSeats;
@@ -19,6 +19,6 @@ public class SuggestionIsMade(SeatingOptionIsSuggested seatingOptionIsSuggested)
 
     public bool MatchExpectation()
     {
-        return _suggestedSeats.Count == PartyRequested;
+        return _suggestedSeats.Count == PartyRequested.Party;
     }
 }

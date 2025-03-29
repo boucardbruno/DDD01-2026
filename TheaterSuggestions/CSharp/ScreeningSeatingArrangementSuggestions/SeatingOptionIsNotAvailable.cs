@@ -1,5 +1,5 @@
 ﻿namespace SeatsSuggestions;
 
-internal class SeatingOptionIsNotAvailable(int partyRequested, PricingCategory pricingCategory)
+internal class SeatingOptionIsNotAvailable(PartyRequested partyRequested, PricingCategory pricingCategory)
     : SeatingOptionIsSuggested(partyRequested,
         pricingCategory);

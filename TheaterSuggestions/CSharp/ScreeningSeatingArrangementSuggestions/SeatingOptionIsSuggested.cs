@@ -1,10 +1,10 @@
 ﻿namespace SeatsSuggestions;
 
-public class SeatingOptionIsSuggested(int partyRequested, PricingCategory priceCategory)
+public class SeatingOptionIsSuggested(PartyRequested partyRequested, PricingCategory priceCategory)
 {
     public PricingCategory PricingCategory { get; } = priceCategory;
     public List<SeatingPlace> Seats { get; } = new();
-    public int PartyRequested { get; } = partyRequested;
+    public PartyRequested PartyRequested { get; } = partyRequested;
 
     public void AddSeat(SeatingPlace seatingPlace)
     {
@@ -13,6 +13,6 @@ public class SeatingOptionIsSuggested(int partyRequested, PricingCategory priceC
 
     public bool MatchExpectation()
     {
-        return Seats.Count == PartyRequested;
+        return Seats.Count == PartyRequested.Party;
     }
 }
