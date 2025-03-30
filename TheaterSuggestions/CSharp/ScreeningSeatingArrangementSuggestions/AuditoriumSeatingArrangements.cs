@@ -4,8 +4,8 @@ using ExternalDependencies.ReservationsProvider;
 namespace SeatsSuggestions;
 
 public class AuditoriumSeatingArrangements(
-    AuditoriumLayoutRepository auditoriumLayoutRepository,
-    ReservationsProvider reservationsProvider)
+    IProvideAuditoriumLayouts auditoriumLayoutRepository,
+    IProvideCurrentReservations reservationsProvider)
 {
     public AuditoriumSeatingArrangement FindByShowId(ShowId showId)
     {

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatReservations.Api", "Sea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditoriumLayout.Api", "AuditoriumLayout.Api\AuditoriumLayout.Api.csproj", "{9359666B-F168-4E43-9DA7-B0D711837DE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatingArrangement.Api", "SeatingArrangement.Api\SeatingArrangement.Api.csproj", "{5AA1ED23-CA35-477B-8AA0-7D68411ECF9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9359666B-F168-4E43-9DA7-B0D711837DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9359666B-F168-4E43-9DA7-B0D711837DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9359666B-F168-4E43-9DA7-B0D711837DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA1ED23-CA35-477B-8AA0-7D68411ECF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA1ED23-CA35-477B-8AA0-7D68411ECF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA1ED23-CA35-477B-8AA0-7D68411ECF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA1ED23-CA35-477B-8AA0-7D68411ECF9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
