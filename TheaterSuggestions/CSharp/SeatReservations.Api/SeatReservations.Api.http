@@ -1,0 +1,6 @@
+@SeatReservations.Api_HostAddress = http://localhost:5066
+
+GET {{SeatReservations.Api_HostAddress}}/data_for_reservation_seats/
+Accept: application/json
+
+###
