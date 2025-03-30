@@ -9,7 +9,7 @@ public class AuditoriumSeatingArrangements(
 {
     public AuditoriumSeatingArrangement FindByShowId(ShowId showId)
     {
-        return Adapt(auditoriumLayoutRepository.GetAuditoriumLayoutFor(showId.Identifier),
+        return Adapt(auditoriumLayoutRepository.GetAuditoriumSeatingFor(showId.Identifier),
             reservationsProvider.GetReservedSeats(showId.Identifier));
     }
 

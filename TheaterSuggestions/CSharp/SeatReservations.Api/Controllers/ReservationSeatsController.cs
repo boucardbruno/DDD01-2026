@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SeatReservations.Api.Controllers;
 
+[Route("api/data_for_reservation_seats/")]
 [ApiController]
-[Route("[controller]")]
 public class ReservationSeatsController(IProvideCurrentReservations provideCurrentReservations) : ControllerBase
 {
     // GET api/data_for_reservation_seats/5

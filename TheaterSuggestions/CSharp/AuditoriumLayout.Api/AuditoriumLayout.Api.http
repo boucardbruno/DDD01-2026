@@ -1,0 +1,6 @@
+@AuditoriumLayout = http://localhost:5241
+
+GET {{AuditoriumLayout.Api_HostAddress}}/data_for_auditoriumSeating/
+Accept: application/json
+
+###

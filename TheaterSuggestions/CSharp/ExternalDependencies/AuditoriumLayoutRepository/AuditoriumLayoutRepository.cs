@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace ExternalDependencies.AuditoriumLayoutRepository
 {
-    public class AuditoriumLayoutRepository
+    public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
     {
         private readonly Dictionary<string, AuditoriumDto> _repository = new Dictionary<string, AuditoriumDto>();
 
@@ -31,7 +31,7 @@ namespace ExternalDependencies.AuditoriumLayoutRepository
                 }
         }
 
-        public AuditoriumDto GetAuditoriumLayoutFor(string showId)
+        public AuditoriumDto GetAuditoriumSeatingFor(string showId)
         {
             if (_repository.ContainsKey(showId)) return _repository[showId];
 
