@@ -71,7 +71,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExternalDependencies\ExternalDependencies.csproj" />
-    <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.csproj" />
+    <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
