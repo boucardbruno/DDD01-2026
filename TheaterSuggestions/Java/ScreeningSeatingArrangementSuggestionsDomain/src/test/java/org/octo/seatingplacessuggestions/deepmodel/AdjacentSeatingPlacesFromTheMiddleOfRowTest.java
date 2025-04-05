@@ -1,20 +1,20 @@
 package org.octo.seatingplacessuggestions.deepmodel;
 
 import org.junit.jupiter.api.Test;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.PricingCategory;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.Row;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlaceAvailability;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.PricingCategory;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.Row;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlaceAvailability;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
-import static org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow.offerSeatsNearerTheMiddleOfTheRow;
+import static org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
+import static org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow.offerSeatsNearerTheMiddleOfTheRow;
 
 public class AdjacentSeatingPlacesFromTheMiddleOfRowTest {
     @Test

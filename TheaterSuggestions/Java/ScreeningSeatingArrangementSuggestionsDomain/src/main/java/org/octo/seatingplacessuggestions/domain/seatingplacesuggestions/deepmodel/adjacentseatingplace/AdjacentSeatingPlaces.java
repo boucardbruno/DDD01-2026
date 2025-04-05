@@ -1,9 +1,9 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.adjacentseatingplace;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.adjacentseatingplace;
 
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.PricingCategory;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlaceAvailability;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.PricingCategory;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlaceAvailability;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
 
 import java.util.ArrayList;
 import java.util.Comparator;

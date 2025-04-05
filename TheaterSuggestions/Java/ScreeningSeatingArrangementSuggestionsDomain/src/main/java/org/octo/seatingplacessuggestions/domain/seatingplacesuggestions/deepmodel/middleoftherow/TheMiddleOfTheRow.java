@@ -1,7 +1,7 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.middleoftherow;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.middleoftherow;
 
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.Row;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.Row;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
 
 import java.util.List;
 import java.util.stream.Stream;

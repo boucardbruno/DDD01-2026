@@ -1,4 +1,4 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions;
 
 import java.util.ArrayList;
 import java.util.List;

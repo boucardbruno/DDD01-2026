@@ -1,5 +1,6 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions;
+package org.octo.seatingplacessuggestions.infra;
 
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.*;
 import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutrepository.AuditoriumDto;
 import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
 import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutrepository.SeatDto;
@@ -11,7 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AuditoriumSeatingArrangements {
+
+public class AuditoriumSeatingArrangements implements IAuditoriumSeatingArrangements {
 
     private final ReservationsProvider reservedSeatsRepository;
     private final AuditoriumLayoutRepository auditoriumLayoutRepository;
@@ -22,6 +24,7 @@ public class AuditoriumSeatingArrangements {
         this.reservedSeatsRepository = reservationsProvider;
     }
 
+    @Override
     public AuditoriumSeatingArrangement findByShowId(ShowID showId) {
         return adapt(auditoriumLayoutRepository.findByShowId(showId.id()),
                 reservedSeatsRepository.getReservedSeats(showId.id()));

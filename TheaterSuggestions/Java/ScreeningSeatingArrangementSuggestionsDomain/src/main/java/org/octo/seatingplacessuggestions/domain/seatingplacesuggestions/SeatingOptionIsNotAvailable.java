@@ -1,4 +1,4 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions;
 
 public class SeatingOptionIsNotAvailable extends SeatingOptionIsSuggested {
     public SeatingOptionIsNotAvailable(PartyRequested partyRequested, PricingCategory pricingCategory) {

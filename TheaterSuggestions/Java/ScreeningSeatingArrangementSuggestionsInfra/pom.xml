@@ -12,14 +12,22 @@
     <packaging>jar</packaging>
     <artifactId>ScreeningSeatingArrangementSuggestionsInfra</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SeatingPlaceSuggestionsInfra</name>
+    <name>ScreeningSeatingArrangementSuggestionsInfra</name>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.octo</groupId>
+            <artifactId>ScreeningSeatingArrangementSuggestionsDomain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.octo</groupId>
             <artifactId>ExternalDependencies</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
 
 
         <!-- TEST dependencies -->
@@ -29,6 +37,7 @@
             <version>5.9.1</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>

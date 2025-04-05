@@ -1,10 +1,10 @@
 package org.octo.seatingplacessuggestions;
 
 import org.junit.jupiter.api.Test;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.PricingCategory;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.Row;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlaceAvailability;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.PricingCategory;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.Row;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlaceAvailability;
 
 import java.util.Arrays;
 

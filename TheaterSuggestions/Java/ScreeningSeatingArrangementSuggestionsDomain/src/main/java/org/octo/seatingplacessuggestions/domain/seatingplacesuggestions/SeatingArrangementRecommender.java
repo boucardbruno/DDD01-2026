@@ -1,13 +1,13 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SeatingArrangementRecommender {
     private static final int NUMBER_OF_SUGGESTIONS = 3;
-    private final AuditoriumSeatingArrangements auditoriumSeatingArrangements;
+    private final IAuditoriumSeatingArrangements auditoriumSeatingArrangements;
 
-    public SeatingArrangementRecommender(AuditoriumSeatingArrangements auditoriumSeatingArrangements) {
+    public SeatingArrangementRecommender(IAuditoriumSeatingArrangements auditoriumSeatingArrangements) {
         this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
     }
 

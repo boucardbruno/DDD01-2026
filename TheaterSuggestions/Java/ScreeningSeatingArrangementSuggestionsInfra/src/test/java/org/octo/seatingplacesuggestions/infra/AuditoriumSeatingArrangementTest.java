@@ -1,11 +1,12 @@
-package org.octo.seatingplacessuggestions;
+package org.octo.seatingplacesuggestions.infra;
 
 import org.junit.jupiter.api.Test;
 import org.octo.seatingplacessuggestions.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
 import org.octo.seatingplacessuggestions.externaldependencies.reservationsprovider.ReservationsProvider;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.AuditoriumSeatingArrangements;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.SeatingPlace;
-import org.octo.seatingplacessuggestions.seatingplacesuggestions.ShowID;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.IAuditoriumSeatingArrangements;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.ShowID;
+import org.octo.seatingplacessuggestions.infra.AuditoriumSeatingArrangements;
 
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class AuditoriumSeatingArrangementTest {
 
     @Test
     public void be_a_Value_Type() throws IOException {
-        var auditoriumSeatingArrangements =
+        IAuditoriumSeatingArrangements auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
 
         ShowID showIdWithoutReservationYet = new ShowID("18");

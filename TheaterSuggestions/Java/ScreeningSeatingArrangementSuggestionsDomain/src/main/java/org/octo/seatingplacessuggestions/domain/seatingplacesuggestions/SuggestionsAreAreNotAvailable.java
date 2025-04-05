@@ -1,4 +1,4 @@
-package org.octo.seatingplacessuggestions.seatingplacesuggestions;
+package org.octo.seatingplacessuggestions.domain.seatingplacesuggestions;
 
 public class SuggestionsAreAreNotAvailable extends SuggestionsAreMade {
 

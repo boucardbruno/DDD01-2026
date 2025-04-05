@@ -28,6 +28,11 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.octo</groupId>
+                <artifactId>ScreeningSeatingArrangementSuggestionsInfra</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.weaveit</groupId>
                 <artifactId>ScreeningSeatingArrangementSuggestionsAcceptanceTests</artifactId>
                 <version>${project.version}</version>
