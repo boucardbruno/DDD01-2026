@@ -1,4 +1,5 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
+﻿using ScreeningSeatingArrangementSuggestions.Infra;
+using SeatsSuggestions;
 
 namespace SeatingArrangement.Api;
 
@@ -10,8 +11,11 @@ public class Startup
         services.AddControllers();
 
         var auditoriumLayoutRepository = new AuditoriumLayoutRepository();
+        var reservationsProvider = new ReservationsProvider();
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(
+            new AuditoriumSeatingAdapter(auditoriumLayoutRepository, reservationsProvider));
 
-        services.AddSingleton<IProvideAuditoriumLayouts>(auditoriumLayoutRepository);
+        services.AddSingleton<ISeatingArrangementRecommenderSuggestion>(seatingArrangementRecommender);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

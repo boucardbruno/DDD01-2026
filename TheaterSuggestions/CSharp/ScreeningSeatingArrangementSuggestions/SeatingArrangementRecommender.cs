@@ -1,6 +1,8 @@
-﻿namespace SeatsSuggestions;
+﻿using SeatsSuggestions.Port;
 
-public class SeatingArrangementRecommender(AuditoriumSeatingArrangements auditoriumSeatingArrangements)
+namespace SeatsSuggestions;
+
+public class SeatingArrangementRecommender(IAdaptAuditoriumSeating auditoriumSeatingArrangements) : ISeatingArrangementRecommenderSuggestion
 {
     private const int NumberOfSuggestions = 3;
 

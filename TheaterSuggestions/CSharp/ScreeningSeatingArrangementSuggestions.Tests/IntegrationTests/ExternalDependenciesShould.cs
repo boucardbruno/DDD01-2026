@@ -1,7 +1,6 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
-using ExternalDependencies.ReservationsProvider;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
+using ScreeningSeatingArrangementSuggestions.Infra;
 
 namespace SeatsSuggestions.Tests.IntegrationTests
 {

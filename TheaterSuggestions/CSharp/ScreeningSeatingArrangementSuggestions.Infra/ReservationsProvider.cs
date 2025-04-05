@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using ExternalDependencies;
+using ExternalDependencies.ReservationsProvider;
 
-namespace ExternalDependencies.ReservationsProvider
+namespace ScreeningSeatingArrangementSuggestions.Infra
 {
     public class ReservationsProvider : IProvideCurrentReservations
     {

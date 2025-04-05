@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using ExternalDependencies;
+using ExternalDependencies.AuditoriumLayoutRepository;
 
-namespace ExternalDependencies.AuditoriumLayoutRepository
+namespace ScreeningSeatingArrangementSuggestions.Infra
 {
     public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
     {

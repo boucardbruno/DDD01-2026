@@ -1,7 +1,6 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
-using ExternalDependencies.ReservationsProvider;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
+using ScreeningSeatingArrangementSuggestions.Infra;
 
 namespace SeatsSuggestions.Tests.AcceptanceTests
 {
@@ -20,7 +19,7 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
            PartyRequested partyRequested = new PartyRequested(1);
 
             var auditoriumSeatingArrangements =
-                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+                new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -39,7 +38,7 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             PartyRequested partyRequested = new PartyRequested(1);
 
             var auditoriumSeatingArrangements =
-                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+                new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -60,7 +59,7 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             PartyRequested partyRequested = new PartyRequested(2);
             
             var auditoriumSeatingArrangements =
-                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+                new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -85,7 +84,7 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             PartyRequested partyRequested = new PartyRequested(1);
             
             var auditoriumSeatingArrangements =
-                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+                new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 

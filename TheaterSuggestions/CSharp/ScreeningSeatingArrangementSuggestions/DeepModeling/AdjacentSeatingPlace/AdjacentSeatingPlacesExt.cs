@@ -1,6 +1,4 @@
-﻿using SeatsSuggestions.DeepModeling.MiddleOfTheRow;
-
-namespace SeatsSuggestions.DeepModeling.AdjacentSeatingPlace;
+﻿namespace SeatsSuggestions.DeepModeling.AdjacentSeatingPlace;
 
 static class AdjacentSeatingPlacesExt
 {

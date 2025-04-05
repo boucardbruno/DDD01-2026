@@ -1,8 +1,7 @@
 ﻿using System.Linq;
-using ExternalDependencies.AuditoriumLayoutRepository;
-using ExternalDependencies.ReservationsProvider;
 using NFluent;
 using NUnit.Framework;
+using ScreeningSeatingArrangementSuggestions.Infra;
 
 namespace SeatsSuggestions.Tests.UnitTests;
 
@@ -13,7 +12,7 @@ public class AuditoriumSeatingArrangementShould
     public void Be_a_Value_Type()
     {
         var auditoriumLayoutAdapter =
-            new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
         var showIdWithoutReservationYet = new ShowId("18");
         var auditoriumSeatingFirstInstance =
             auditoriumLayoutAdapter.FindByShowId(showIdWithoutReservationYet);

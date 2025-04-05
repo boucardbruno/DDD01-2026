@@ -1,11 +1,13 @@
 ﻿using ExternalDependencies.AuditoriumLayoutRepository;
 using ExternalDependencies.ReservationsProvider;
+using SeatsSuggestions;
+using SeatsSuggestions.Port;
 
-namespace SeatsSuggestions;
+namespace ScreeningSeatingArrangementSuggestions.Infra;
 
-public class AuditoriumSeatingArrangements(
+public class AuditoriumSeatingAdapter(
     IProvideAuditoriumLayouts auditoriumLayoutRepository,
-    IProvideCurrentReservations reservationsProvider)
+    IProvideCurrentReservations reservationsProvider) : IAdaptAuditoriumSeating
 {
     public AuditoriumSeatingArrangement FindByShowId(ShowId showId)
     {

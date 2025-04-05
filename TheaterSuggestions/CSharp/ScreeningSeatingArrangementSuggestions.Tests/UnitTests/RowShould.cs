@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
-using SeatsSuggestions.DeepModeling.AdjacentSeatingPlace;
-using SeatsSuggestions.DeepModeling.MiddleOfTheRow;
 
 namespace SeatsSuggestions.Tests.UnitTests;
 

@@ -1,4 +1,5 @@
 ﻿using ExternalDependencies.AuditoriumLayoutRepository;
+using ScreeningSeatingArrangementSuggestions.Infra;
 
 namespace AuditoriumLayout.Api;
 
