@@ -4,20 +4,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.weaveit</groupId>
+        <groupId>org.octo</groupId>
         <artifactId>ScreeningSeatingArrangementSuggestionsParent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <packaging>jar</packaging>
-    <artifactId>ScreeningSeatingArrangementSuggestions</artifactId>
+    <artifactId>ScreeningSeatingArrangementSuggestionsInfra</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SeatingPlaceSuggestions</name>
+    <name>SeatingPlaceSuggestionsInfra</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.weaveit</groupId>
+            <groupId>org.octo</groupId>
             <artifactId>ExternalDependencies</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
 

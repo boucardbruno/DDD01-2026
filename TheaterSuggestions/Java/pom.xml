@@ -3,27 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.weaveit</groupId>
+    <groupId>org.octo</groupId>
     <artifactId>ScreeningSeatingArrangementSuggestionsParent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
+        <java.version>23</java.version>
     </properties>
 
     <modules>
         <module>ExternalDependencies</module>
-        <module>ScreeningSeatingArrangementSuggestions</module>
+        <module>ScreeningSeatingArrangementSuggestionsDomain</module>
+        <module>ScreeningSeatingArrangementSuggestionsInfra</module>
         <module>ScreeningSeatingArrangementSuggestionsAcceptanceTests</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.weaveit</groupId>
-                <artifactId>ScreeningSeatingArrangementSuggestions</artifactId>
+                <groupId>org.octo</groupId>
+                <artifactId>ScreeningSeatingArrangementSuggestionsDomain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
