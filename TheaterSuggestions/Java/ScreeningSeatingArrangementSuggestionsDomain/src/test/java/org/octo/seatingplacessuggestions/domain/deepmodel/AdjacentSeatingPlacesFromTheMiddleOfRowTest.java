@@ -1,20 +1,20 @@
 package org.octo.seatingplacessuggestions.domain.deepmodel;
 
 import org.junit.jupiter.api.Test;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.PricingCategory;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.Row;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.SeatingPlace;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.SeatingPlaceAvailability;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.PricingCategory;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.Row;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlaceAvailability;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.SeatingPlaceWithDistance;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
-import static org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow.offerSeatsNearerTheMiddleOfTheRow;
+import static org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.adjacentseatingplace.AdjacentSeatingPlaces.offerAdjacentSeatingPlace;
+import static org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.deepmodel.middleoftherow.TheMiddleOfTheRow.offerSeatsNearerTheMiddleOfTheRow;
 
 public class AdjacentSeatingPlacesFromTheMiddleOfRowTest {
     @Test

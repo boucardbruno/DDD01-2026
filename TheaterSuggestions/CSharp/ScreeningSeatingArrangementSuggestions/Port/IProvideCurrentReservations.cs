@@ -1,4 +1,6 @@
-﻿namespace ExternalDependencies.ReservationsProvider;
+﻿using ExternalDependencies.ReservationsProvider;
+
+namespace SeatsSuggestions.Port;
 
 public interface IProvideCurrentReservations
 {

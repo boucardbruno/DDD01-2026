@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using ExternalDependencies;
 using ExternalDependencies.ReservationsProvider;
+using SeatsSuggestions.Port;
 
 namespace ScreeningSeatingArrangementSuggestions.Infra
 {

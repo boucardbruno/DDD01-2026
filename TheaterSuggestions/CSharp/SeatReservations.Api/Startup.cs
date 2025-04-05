@@ -1,5 +1,6 @@
 ﻿using ExternalDependencies.ReservationsProvider;
 using ScreeningSeatingArrangementSuggestions.Infra;
+using SeatsSuggestions.Port;
 
 namespace SeatReservations.Api;
 

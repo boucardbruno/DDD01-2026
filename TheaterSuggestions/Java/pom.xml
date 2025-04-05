@@ -14,7 +14,6 @@
     </properties>
 
     <modules>
-        <module>ExternalDependencies</module>
         <module>ScreeningSeatingArrangementSuggestionsDomain</module>
         <module>ScreeningSeatingArrangementSuggestionsInfra</module>
         <module>ScreeningSeatingArrangementSuggestionsAcceptanceTests</module>

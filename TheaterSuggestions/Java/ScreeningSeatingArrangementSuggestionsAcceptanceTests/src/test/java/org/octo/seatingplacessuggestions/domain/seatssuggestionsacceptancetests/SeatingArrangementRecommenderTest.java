@@ -1,10 +1,10 @@
 package org.octo.seatingplacessuggestions.domain.seatssuggestionsacceptancetests;
 
-import org.octo.seatingplacessuggestions.domain.domain.seatingplacesuggestions.*;
-import org.octo.seatingplacessuggestions.domain.externaldependencies.auditoriumlayoutrepository.AuditoriumLayoutRepository;
-import org.octo.seatingplacessuggestions.domain.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.junit.jupiter.api.Test;
-import org.octo.seatingplacessuggestions.domain.infra.AuditoriumSeatingArrangements;
+import org.octo.seatingplacessuggestions.infra.AuditoriumLayoutRepository;
+import org.octo.seatingplacessuggestions.infra.AuditoriumSeatingArrangements;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.*;
+import org.octo.seatingplacessuggestions.infra.ReservationsProvider;
 
 import java.io.IOException;
 

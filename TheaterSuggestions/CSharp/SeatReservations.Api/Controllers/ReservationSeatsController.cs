@@ -1,5 +1,6 @@
 using ExternalDependencies.ReservationsProvider;
 using Microsoft.AspNetCore.Mvc;
+using SeatsSuggestions.Port;
 
 namespace SeatReservations.Api.Controllers;
 
