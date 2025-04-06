@@ -1,5 +1,7 @@
 using ExternalDependencies.AuditoriumLayoutRepository;
 using Microsoft.AspNetCore.Mvc;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+using SeatsSuggestions.Port;
 
 namespace AuditoriumLayout.Api.Controllers;
 

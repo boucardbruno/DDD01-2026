@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using ExternalDependencies.AuditoriumLayoutRepository;
 
-namespace ExternalDependencies.AuditoriumLayoutRepository
+namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository
 {
     public class AuditoriumDto
     {

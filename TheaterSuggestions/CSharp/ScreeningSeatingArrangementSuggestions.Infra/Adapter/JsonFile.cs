@@ -1,7 +1,6 @@
-﻿using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace ExternalDependencies
+namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter
 {
     public static class JsonFile
     {

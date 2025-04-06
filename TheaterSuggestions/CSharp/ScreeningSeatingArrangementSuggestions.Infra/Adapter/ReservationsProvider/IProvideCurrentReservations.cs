@@ -1,6 +1,5 @@
-﻿using ExternalDependencies.ReservationsProvider;
-
-namespace SeatsSuggestions.Port;
+﻿
+namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 
 public interface IProvideCurrentReservations
 {

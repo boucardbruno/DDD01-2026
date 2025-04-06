@@ -9,10 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ExternalDependencies\ExternalDependencies.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Value" Version="1.1.0.1" />
     </ItemGroup>
 

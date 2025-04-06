@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ExternalDependencies\ExternalDependencies.csproj" />
       <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions.Infra\ScreeningSeatingArrangementSuggestions.Infra.csproj" />
       <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.Domain.csproj" />
     </ItemGroup>

@@ -2,8 +2,9 @@
 using System.Runtime.InteropServices;
 using ExternalDependencies;
 using ExternalDependencies.AuditoriumLayoutRepository;
+using SeatsSuggestions.Port;
 
-namespace ScreeningSeatingArrangementSuggestions.Infra
+namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository
 {
     public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
     {

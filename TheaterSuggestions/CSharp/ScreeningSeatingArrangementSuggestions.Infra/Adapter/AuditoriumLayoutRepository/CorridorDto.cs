@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ExternalDependencies.AuditoriumLayoutRepository
+﻿namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository
 {
     public class CorridorDto
     {

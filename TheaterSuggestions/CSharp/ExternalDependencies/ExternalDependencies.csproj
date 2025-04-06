@@ -63,10 +63,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AuditoriumLayouts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="..\..\..\Stubs\AuditoriumLayouts\1-Ford Theater-%282%29%280%29_booked_seats.json" Link="AuditoriumLayouts\1-Ford Theater-%282%29%280%29_booked_seats.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

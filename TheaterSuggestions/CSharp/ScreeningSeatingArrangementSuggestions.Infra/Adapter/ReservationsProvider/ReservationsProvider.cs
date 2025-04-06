@@ -1,10 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using ExternalDependencies;
-using ExternalDependencies.ReservationsProvider;
-using SeatsSuggestions.Port;
 
-namespace ScreeningSeatingArrangementSuggestions.Infra
+namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider
 {
     public class ReservationsProvider : IProvideCurrentReservations
     {
@@ -39,7 +37,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra
             return new ReservedSeatsDto();
         }
 
-        private static string GetExecutingAssemblyDirectoryFullPath()
+        private static string? GetExecutingAssemblyDirectoryFullPath()
         {
             var directoryName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -48,7 +46,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra
                 directoryName = directoryName.Substring(6);
             }
 
-            if (directoryName.StartsWith(@"file:/"))
+            if (directoryName != null && directoryName.StartsWith(@"file:/"))
             {
                 directoryName = directoryName.Substring(5);
             }

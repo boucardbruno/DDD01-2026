@@ -1,6 +1,8 @@
 ﻿using NFluent;
 using NUnit.Framework;
-using ScreeningSeatingArrangementSuggestions.Infra;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumSeatingAdaptater;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 
 namespace SeatsSuggestions.Tests.AcceptanceTests
 {
@@ -15,8 +17,8 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             //       1   2   3   4   5   6   7   8   9  10
             //  A : (2) (2)  1  (1) (1) (1) (1) (1) (2) (2)
             //  B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
-           ShowId showId = new ShowId("1");
-           PartyRequested partyRequested = new PartyRequested(1);
+           var showId = new ShowId("1");
+           var partyRequested = new PartyRequested(1);
 
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -35,7 +37,7 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             // A : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
             // B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
             var showId = new ShowId("5");
-            PartyRequested partyRequested = new PartyRequested(1);
+            var partyRequested = new PartyRequested(1);
 
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -55,8 +57,8 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             //     1   2   3   4   5   6   7   8   9  10
             //  A: 2   2   1   1   1   1   1   1   2   2
             //  B: 2   2   1   1   1   1   1   1   2   2
-            ShowId showId = new ShowId("17");
-            PartyRequested partyRequested = new PartyRequested(2);
+            var showId = new ShowId("17");
+            var partyRequested = new PartyRequested(2);
             
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
@@ -80,8 +82,8 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             //  D: 2   2   2   2   2   2   2   2   2   2
             //  E: 3   3   3   3   3   3   3   3   3   3
             //  F: 3   3   3   3   3   3   3   3   3   3
-            ShowId showId = new ShowId("18");
-            PartyRequested partyRequested = new PartyRequested(1);
+            var showId = new ShowId("18");
+            var partyRequested = new PartyRequested(1);
             
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());

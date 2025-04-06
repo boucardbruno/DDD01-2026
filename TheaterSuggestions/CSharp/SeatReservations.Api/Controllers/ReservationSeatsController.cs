@@ -1,5 +1,5 @@
-using ExternalDependencies.ReservationsProvider;
 using Microsoft.AspNetCore.Mvc;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 using SeatsSuggestions.Port;
 
 namespace SeatReservations.Api.Controllers;

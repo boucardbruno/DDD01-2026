@@ -2,6 +2,10 @@
 using NFluent;
 using NUnit.Framework;
 using ScreeningSeatingArrangementSuggestions.Infra;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumSeatingAdaptater;
+using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 
 namespace SeatsSuggestions.Tests.UnitTests;
 
