@@ -6,7 +6,7 @@ using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 namespace SeatsSuggestions.Tests.IntegrationTests
 {
     [TestFixture]
-    public class ExternalDependenciesShould
+    public class InfrastructureShould
     {
         [Test]
         public void Allow_us_to_retrieve_reserved_seats_for_a_given_ShowId()
