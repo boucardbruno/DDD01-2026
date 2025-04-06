@@ -1,11 +1,12 @@
 package org.octo.seatingplacesuggestions.infra;
+
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.octo.seatingplacessuggestions.infra.AuditoriumLayoutRepository;
 import org.octo.seatingplacessuggestions.infra.ReservationsProvider;
+
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ExternalDependenciesTest {
 

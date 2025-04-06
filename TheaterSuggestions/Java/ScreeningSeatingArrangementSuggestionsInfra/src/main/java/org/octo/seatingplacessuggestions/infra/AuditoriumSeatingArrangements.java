@@ -20,6 +20,14 @@ public class AuditoriumSeatingArrangements implements IAuditoriumSeatingArrangem
         this.reservedSeatsRepository = reservationsProvider;
     }
 
+    private static PricingCategory convertCategory(int seatDtoCategory) {
+        return PricingCategory.valueOf(seatDtoCategory);
+    }
+
+    private static int extractNumber(String name) {
+        return Integer.parseUnsignedInt(name.substring(1));
+    }
+
     @Override
     public AuditoriumSeatingArrangement findByShowId(ShowID showId) {
         return adapt(auditoriumLayoutRepository.findByShowId(showId.id()),
@@ -48,14 +56,6 @@ public class AuditoriumSeatingArrangements implements IAuditoriumSeatingArrangem
         }
 
         return new AuditoriumSeatingArrangement(rows);
-    }
-
-    private static PricingCategory convertCategory(int seatDtoCategory) {
-        return PricingCategory.valueOf(seatDtoCategory);
-    }
-
-    private static int extractNumber(String name) {
-        return Integer.parseUnsignedInt(name.substring(1));
     }
 
 }

@@ -26,7 +26,11 @@ public class SeatingOptionIsSuggested {
         return seats;
     }
 
-    public PricingCategory pricingCategory() { return pricingCategory; }
+    public PricingCategory pricingCategory() {
+        return pricingCategory;
+    }
 
-    public PartyRequested partyRequested() { return partyRequested; }
+    public PartyRequested partyRequested() {
+        return partyRequested;
+    }
 }

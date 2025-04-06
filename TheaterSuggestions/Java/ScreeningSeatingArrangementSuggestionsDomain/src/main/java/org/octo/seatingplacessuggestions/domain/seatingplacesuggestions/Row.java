@@ -28,7 +28,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
     }
 
     public Row addSeatingPlace(SeatingPlace seatingPlace) {
-        List<SeatingPlace> newSeatingPlaces = new ArrayList<>( seatingPlaces );
+        List<SeatingPlace> newSeatingPlaces = new ArrayList<>(seatingPlaces);
         newSeatingPlaces.add(seatingPlace);
         return new Row(name, newSeatingPlaces);
     }
@@ -44,8 +44,7 @@ public record Row(String name, List<SeatingPlace> seatingPlaces) {
         return new Row(name, newSeatingPlaces);
     }
 
-    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested, PricingCategory pricingCategory)
-    {
+    private List<SeatingPlace> offerAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested, PricingCategory pricingCategory) {
         var seatingPlacesWithDistance = offerSeatsNearerTheMiddleOfTheRow(this);
 
         if (partyRequested.partySize() > 1) {

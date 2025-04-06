@@ -10,7 +10,6 @@ public enum PricingCategory {
     THIRD(3),
     IGNORED(4);
 
-    private final int value;
     private static final Map<Integer, PricingCategory> map;
 
     static {
@@ -18,12 +17,10 @@ public enum PricingCategory {
                 .collect(Collectors.toUnmodifiableMap(PricingCategory::getValue, category -> category));
     }
 
+    private final int value;
+
     PricingCategory(int value) {
         this.value = value;
-    }
-
-    public int getValue() {
-        return value;
     }
 
     public static PricingCategory valueOf(int pageType) {
@@ -32,5 +29,9 @@ public enum PricingCategory {
             throw new IllegalArgumentException("No enum constant with value " + pageType);
         }
         return category;
+    }
+
+    public int getValue() {
+        return value;
     }
 }

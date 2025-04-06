@@ -13,21 +13,6 @@ public class SeatingArrangementRecommender {
         this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
     }
 
-    public SuggestionsAreMade makeSuggestion(ShowID showId, PartyRequested partyRequested) {
-
-        var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
-
-        var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
-
-        for (var pricingCategory : PricingCategory.values()) {
-            suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
-        }
-
-        if (suggestionsMade.matchExpectations()) return suggestionsMade;
-
-        return new SuggestionsAreAreNotAvailable(showId, partyRequested);
-    }
-
     private static List<SuggestionIsMade> giveMeSuggestionsFor(
             AuditoriumSeatingArrangement auditoriumSeatingArrangement, PartyRequested partyRequested, PricingCategory pricingCategory) {
         var foundedSuggestions = new ArrayList<SuggestionIsMade>();
@@ -43,5 +28,20 @@ public class SeatingArrangementRecommender {
         }
 
         return foundedSuggestions;
+    }
+
+    public SuggestionsAreMade makeSuggestion(ShowID showId, PartyRequested partyRequested) {
+
+        var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
+
+        var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
+
+        for (var pricingCategory : PricingCategory.values()) {
+            suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
+        }
+
+        if (suggestionsMade.matchExpectations()) return suggestionsMade;
+
+        return new SuggestionsAreAreNotAvailable(showId, partyRequested);
     }
 }

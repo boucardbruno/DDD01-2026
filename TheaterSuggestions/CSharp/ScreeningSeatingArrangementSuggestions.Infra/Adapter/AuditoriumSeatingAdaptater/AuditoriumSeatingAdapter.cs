@@ -16,7 +16,7 @@ public class AuditoriumSeatingAdapter(
             reservationsProvider.GetReservedSeats(showId.Identifier));
     }
 
-    private static AuditoriumSeatingArrangement Adapt(AuditoriumDto auditoriumDto, ReservedSeatsDto reservedSeatsDto)
+    private static AuditoriumSeatingArrangement Adapt(AuditoriumDto? auditoriumDto, ReservedSeatsDto? reservedSeatsDto)
     {
         var rows = new Dictionary<string, Row>();
 

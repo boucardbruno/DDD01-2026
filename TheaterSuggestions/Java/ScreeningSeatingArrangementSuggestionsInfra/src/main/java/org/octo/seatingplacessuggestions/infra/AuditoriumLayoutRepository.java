@@ -31,8 +31,7 @@ public class AuditoriumLayoutRepository implements IProvideAuditoriumLayouts {
 
     @Override
     public AuditoriumDto findByShowId(String showId) {
-        if (repository.containsKey(showId))
-        {
+        if (repository.containsKey(showId)) {
             return repository.get(showId);
         }
 

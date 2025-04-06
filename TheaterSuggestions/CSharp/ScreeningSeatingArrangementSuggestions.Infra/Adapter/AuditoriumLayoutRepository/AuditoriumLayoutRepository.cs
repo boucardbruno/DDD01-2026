@@ -8,7 +8,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutR
 {
     public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
     {
-        private readonly Dictionary<string, AuditoriumDto> _repository = new Dictionary<string, AuditoriumDto>();
+        private readonly Dictionary<string, AuditoriumDto?> _repository = new Dictionary<string, AuditoriumDto?>();
 
         public AuditoriumLayoutRepository()
         {
@@ -31,7 +31,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutR
                 }
         }
 
-        public AuditoriumDto GetAuditoriumSeatingFor(string showId)
+        public AuditoriumDto? GetAuditoriumSeatingFor(string showId)
         {
             if (_repository.ContainsKey(showId)) return _repository[showId];
 

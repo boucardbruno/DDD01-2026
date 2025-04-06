@@ -4,6 +4,5 @@ import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingP
 
 import java.util.List;
 
-public record GroupOfAdjacentSeats(List<SeatingPlace> SeatingPlaces, int SumOfDistance)
-{
+public record GroupOfAdjacentSeats(List<SeatingPlace> SeatingPlaces, int SumOfDistance) {
 }

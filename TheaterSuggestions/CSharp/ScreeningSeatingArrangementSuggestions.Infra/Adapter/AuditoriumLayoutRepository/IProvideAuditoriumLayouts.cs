@@ -3,5 +3,5 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutR
 
 public interface IProvideAuditoriumLayouts
 {
-    AuditoriumDto GetAuditoriumSeatingFor(string showId);
+    AuditoriumDto? GetAuditoriumSeatingFor(string showId);
 }

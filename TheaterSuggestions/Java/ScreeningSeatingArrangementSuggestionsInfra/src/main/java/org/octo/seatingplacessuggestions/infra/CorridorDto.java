@@ -2,6 +2,7 @@ package org.octo.seatingplacessuggestions.infra;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record CorridorDto(@JsonProperty("Number") int number, @JsonProperty("InvolvedRowNames") Iterable<String> involvedRowNames) {
+public record CorridorDto(@JsonProperty("Number") int number,
+                          @JsonProperty("InvolvedRowNames") Iterable<String> involvedRowNames) {
 
 }

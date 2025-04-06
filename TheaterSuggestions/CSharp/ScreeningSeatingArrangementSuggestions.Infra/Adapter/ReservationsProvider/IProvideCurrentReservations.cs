@@ -3,5 +3,5 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvi
 
 public interface IProvideCurrentReservations
 {
-    ReservedSeatsDto GetReservedSeats(string showId);
+    ReservedSeatsDto? GetReservedSeats(string showId);
 }

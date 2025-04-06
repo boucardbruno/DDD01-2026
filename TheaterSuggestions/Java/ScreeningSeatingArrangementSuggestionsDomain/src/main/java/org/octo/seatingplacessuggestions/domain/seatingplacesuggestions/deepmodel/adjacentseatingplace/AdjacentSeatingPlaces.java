@@ -10,8 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AdjacentSeatingPlaces {
-    public static List<SeatingPlace> offerAdjacentSeatingPlace(List<SeatingPlaceWithDistance> seatingPlacesWithDistance, PricingCategory pricingCategory, int partySize)
-    {
+    public static List<SeatingPlace> offerAdjacentSeatingPlace(List<SeatingPlaceWithDistance> seatingPlacesWithDistance, PricingCategory pricingCategory, int partySize) {
         var potentialAdjacentSeats = new ArrayList<SeatingPlaceWithDistance>();
         var groupsOfAdjacentSeats = new ArrayList<GroupOfAdjacentSeats>();
         var seatingPlacesWithDistancePrevious =
@@ -23,26 +22,20 @@ public class AdjacentSeatingPlaces {
                 .filter(s -> s.SeatingPlace().isAvailable())
                 .sorted(Comparator.comparing(s -> s.SeatingPlace().number())).toList();
 
-        for(var seatingPlaceWithDistance : seatingPlaceWithDistances)
-        {
-            if (areAdjacentSeats(seatingPlacesWithDistancePrevious, seatingPlaceWithDistance))
-            {
-                if (potentialAdjacentSeats.isEmpty())
-                {
+        for (var seatingPlaceWithDistance : seatingPlaceWithDistances) {
+            if (areAdjacentSeats(seatingPlacesWithDistancePrevious, seatingPlaceWithDistance)) {
+                if (potentialAdjacentSeats.isEmpty()) {
                     potentialAdjacentSeats.add(seatingPlacesWithDistancePrevious);
                 }
 
                 potentialAdjacentSeats.add(seatingPlaceWithDistance);
-            }
-            else
-            {
+            } else {
                 potentialAdjacentSeats.clear();
             }
 
             seatingPlacesWithDistancePrevious = seatingPlaceWithDistance;
 
-            if (partySize == potentialAdjacentSeats.size())
-            {
+            if (partySize == potentialAdjacentSeats.size()) {
                 seatingPlacesWithDistancePrevious = addGroupOfPlaceWithDistances(groupsOfAdjacentSeats, potentialAdjacentSeats);
             }
         }
@@ -55,9 +48,8 @@ public class AdjacentSeatingPlaces {
 
 
     public static SeatingPlaceWithDistance addGroupOfPlaceWithDistances(
-            List<GroupOfAdjacentSeats> groupsOfAdjacentSeats, List<SeatingPlaceWithDistance> potentialAdjacentSeats)
-    {
-        var sumOfDistance = (Integer)potentialAdjacentSeats.stream().mapToInt(SeatingPlaceWithDistance::DistanceFromTheMiddleOfTheRow).sum();
+            List<GroupOfAdjacentSeats> groupsOfAdjacentSeats, List<SeatingPlaceWithDistance> potentialAdjacentSeats) {
+        var sumOfDistance = (Integer) potentialAdjacentSeats.stream().mapToInt(SeatingPlaceWithDistance::DistanceFromTheMiddleOfTheRow).sum();
         var seatingPlaces = potentialAdjacentSeats.stream().map(SeatingPlaceWithDistance::SeatingPlace);
         groupsOfAdjacentSeats.add(new GroupOfAdjacentSeats(seatingPlaces.toList(), sumOfDistance));
         potentialAdjacentSeats.clear();
@@ -66,15 +58,13 @@ public class AdjacentSeatingPlaces {
     }
 
     public static Boolean areAdjacentSeats(SeatingPlaceWithDistance seatingPlacesWithDistancePrevious,
-                                           SeatingPlaceWithDistance seatingPlaceWithDistance)
-    {
+                                           SeatingPlaceWithDistance seatingPlaceWithDistance) {
         return seatingPlacesWithDistancePrevious.SeatingPlace().number() + 1 ==
                 seatingPlaceWithDistance.SeatingPlace().number();
     }
 
     private static List<SeatingPlace> selectTheBestGroupOfSeatingPlaces(
-            List<GroupOfAdjacentSeats> groupsOfAdjacentSeats)
-    {
+            List<GroupOfAdjacentSeats> groupsOfAdjacentSeats) {
         var bestOfGroupOfAdjacentSeats = groupsOfAdjacentSeats.stream()
                 .sorted(Comparator.comparing(GroupOfAdjacentSeats::SumOfDistance))
                 .toList();

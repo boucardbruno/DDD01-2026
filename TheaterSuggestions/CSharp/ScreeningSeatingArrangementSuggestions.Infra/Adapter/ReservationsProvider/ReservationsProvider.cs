@@ -6,7 +6,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvi
 {
     public class ReservationsProvider : IProvideCurrentReservations
     {
-        private readonly Dictionary<string, ReservedSeatsDto> _repository = new Dictionary<string, ReservedSeatsDto>();
+        private readonly Dictionary<string, ReservedSeatsDto?> _repository = new Dictionary<string, ReservedSeatsDto?>();
 
         public ReservationsProvider()
         {
@@ -30,7 +30,7 @@ namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvi
                 }
         }
 
-        public ReservedSeatsDto GetReservedSeats(string showId)
+        public ReservedSeatsDto? GetReservedSeats(string showId)
         {
             if (_repository.ContainsKey(showId)) return _repository[showId];
 

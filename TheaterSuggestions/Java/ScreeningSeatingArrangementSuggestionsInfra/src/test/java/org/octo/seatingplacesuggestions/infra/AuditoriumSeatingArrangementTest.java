@@ -1,13 +1,12 @@
 package org.octo.seatingplacesuggestions.infra;
 
 import org.junit.jupiter.api.Test;
-import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.port.IAuditoriumSeatingArrangements;
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SeatingPlace;
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.ShowID;
+import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.port.IAuditoriumSeatingArrangements;
 import org.octo.seatingplacessuggestions.infra.AuditoriumLayoutRepository;
 import org.octo.seatingplacessuggestions.infra.AuditoriumSeatingArrangements;
 import org.octo.seatingplacessuggestions.infra.ReservationsProvider;
-
 
 import java.io.IOException;
 
@@ -31,7 +30,7 @@ public class AuditoriumSeatingArrangementTest {
                 .isEqualTo(auditoriumSeatingFirstInstance);
 
         // Should not mutate existing instance
-        SeatingPlace seatAllocated   = auditoriumSeatingSecondInstance.getRows().values().iterator()
+        SeatingPlace seatAllocated = auditoriumSeatingSecondInstance.getRows().values().iterator()
                 .next().seatingPlaces().iterator().next().allocate();
         assertThat(seatAllocated).isInstanceOf(SeatingPlace.class);
         assertThat(auditoriumSeatingSecondInstance)

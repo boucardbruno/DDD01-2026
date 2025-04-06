@@ -19,8 +19,7 @@ import static org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.d
 public class AdjacentSeatingPlacesFromTheMiddleOfRowTest {
     @Test
     public void
-    offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
-    {
+    offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one() {
         var partySize = 2;
 
         var a1 = new SeatingPlace("A", 1, PricingCategory.SECOND, SeatingPlaceAvailability.AVAILABLE);
@@ -57,8 +56,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowTest {
 
     @Test
     public void
-    offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_odd_and_party_size_is_greater_than_one()
-    {
+    offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_odd_and_party_size_is_greater_than_one() {
         var partySize = 2;
 
         var a1 = new SeatingPlace("A", 1, PricingCategory.SECOND, SeatingPlaceAvailability.AVAILABLE);
@@ -93,8 +91,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowTest {
     }
 
     @Test
-    public void offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
-    {
+    public void offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one() {
         var partySize = 2;
         var pricingCategory = PricingCategory.IGNORED;
 

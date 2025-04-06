@@ -10,7 +10,7 @@ public class ReservationSeatsController(IProvideCurrentReservations provideCurre
 {
     // GET api/data_for_reservation_seats/5
     [HttpGet("{showId}")]
-    public Task<ReservedSeatsDto> Get(string showId)
+    public Task<ReservedSeatsDto?> Get(string showId)
     {
         return Task.FromResult(provideCurrentReservations.GetReservedSeats(showId));
     }
