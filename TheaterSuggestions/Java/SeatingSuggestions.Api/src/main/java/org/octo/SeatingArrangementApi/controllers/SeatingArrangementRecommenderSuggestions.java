@@ -3,7 +3,6 @@ package org.octo.SeatingArrangementApi.controllers;
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.PartyRequested;
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.ShowID;
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.SuggestionsAreMade;
-
 import org.octo.seatingplacessuggestions.domain.seatingplacesuggestions.port.ISeatingArrangementRecommenderSuggestions;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

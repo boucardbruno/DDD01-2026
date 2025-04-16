@@ -3,17 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>3.4.4</version>-->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--    </parent>-->
 
     <groupId>org.octo</groupId>
-    <artifactId>ScreeningSeatingArrangementSuggestionsParent</artifactId>
+    <artifactId>SeatingSuggestionsParent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,10 +22,10 @@
     </properties>
 
     <modules>
-        <module>ScreeningSeatingArrangementSuggestions.Domain</module>
-        <module>ScreeningSeatingArrangementSuggestions.Infra</module>
-        <module>ScreeningSeatingArrangementSuggestions.Acceptance.Tests</module>
-        <module>ScreeningSeatingArrangementSuggestions.Api</module>
+        <module>SeatingSuggestions.Domain</module>
+        <module>SeatingSuggestions.Infra</module>
+        <module>SeatingSuggestions.Tests</module>
+        <module>SeatingSuggestions.Api</module>
     </modules>
 
     <dependencyManagement>
@@ -43,11 +44,6 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.octo</groupId>
-                <artifactId>Domain</artifactId>
-                <version>${project.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.octo</groupId>
