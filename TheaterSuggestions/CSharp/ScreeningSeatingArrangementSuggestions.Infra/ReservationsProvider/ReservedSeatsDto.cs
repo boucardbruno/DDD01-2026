@@ -1,4 +1,4 @@
-﻿namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
+﻿namespace SeatingSuggestions.Infra.ReservationsProvider;
 
 public class ReservedSeatsDto
 {

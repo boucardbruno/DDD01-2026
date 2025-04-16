@@ -1,9 +1,7 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
-
-namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+﻿namespace SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 
 public class AuditoriumDto
 {
-    public Dictionary<string, IReadOnlyList<SeatDto>> Rows { get; }
-    public IEnumerable<CorridorDto> Corridors { get; }
+    public Dictionary<string, IReadOnlyList<SeatDto>>? Rows { get; } = new();
+    public IEnumerable<CorridorDto>? Corridors { get; } = new List<CorridorDto>();
 }

@@ -1,6 +1,6 @@
 ﻿namespace SeatsSuggestions.DeepModeling.AdjacentSeatingPlace;
 
-static class AdjacentSeatingPlacesExt
+internal static class AdjacentSeatingPlacesExt
 {
     public static SeatingPlaceWithDistance AddGroupOfPlaceWithDistances(
         this List<GroupOfAdjacentSeats> groupsOfAdjacentSeats, List<SeatingPlaceWithDistance> potentialAdjacentSeats)

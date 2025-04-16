@@ -2,13 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions.Infra\ScreeningSeatingArrangementSuggestions.Infra.csproj" />
-      <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.Domain.csproj" />
+        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions.Infra\ScreeningSeatingArrangementSuggestions.Infra.csproj"/>
+        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\ScreeningSeatingArrangementSuggestions.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

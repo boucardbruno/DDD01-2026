@@ -1,4 +1,4 @@
-﻿namespace SeatsSuggestions;
+﻿namespace SeatsSuggestions.Port;
 
 public interface ISeatingArrangementRecommenderSuggestions
 {

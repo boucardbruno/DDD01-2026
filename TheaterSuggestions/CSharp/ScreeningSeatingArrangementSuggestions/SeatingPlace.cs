@@ -1,10 +1,12 @@
-﻿namespace SeatsSuggestions;
+﻿using Value;
+
+namespace SeatsSuggestions;
 
 public class SeatingPlace(
     string rowName,
     int number,
     PricingCategory pricingCategory,
-    SeatingPlaceAvailability seatingPlaceAvailability) : Value.ValueType<SeatingPlace> 
+    SeatingPlaceAvailability seatingPlaceAvailability) : ValueType<SeatingPlace>
 {
     public string RowName { get; } = rowName;
     public int Number { get; } = number;
@@ -24,16 +26,14 @@ public class SeatingPlace(
     public bool MatchCategory(PricingCategory pricingCategory)
     {
         if (pricingCategory == PricingCategory.Ignored) return true;
-        
+
         return PricingCategory == pricingCategory;
     }
 
     public SeatingPlace Allocate()
     {
         if (SeatingPlaceAvailability == SeatingPlaceAvailability.Available)
-        {
             return new SeatingPlace(RowName, Number, PricingCategory, SeatingPlaceAvailability.Allocated);
-        }
         return this;
     }
 
@@ -44,6 +44,6 @@ public class SeatingPlace(
 
     public bool IsSameLocation(SeatingPlace seatingPlace)
     {
-        return this.Number == seatingPlace.Number && this.RowName == seatingPlace.RowName;
+        return Number == seatingPlace.Number && RowName == seatingPlace.RowName;
     }
 }

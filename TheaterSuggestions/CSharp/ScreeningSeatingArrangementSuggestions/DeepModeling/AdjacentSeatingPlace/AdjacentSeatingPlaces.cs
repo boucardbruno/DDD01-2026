@@ -3,7 +3,8 @@
 public static class AdjacentSeatingPlaces
 {
     public static IEnumerable<SeatingPlace> OfferAdjacentSeatingPlace(
-        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, PricingCategory pricingCategory, PartyRequested partyRequested)
+        IEnumerable<SeatingPlaceWithDistance> seatingPlacesWithDistances, PricingCategory pricingCategory,
+        PartyRequested partyRequested)
     {
         var potentialAdjacentSeats = new List<SeatingPlaceWithDistance>();
         var groupsOfAdjacentSeats = new List<GroupOfAdjacentSeats>();
@@ -15,14 +16,11 @@ public static class AdjacentSeatingPlaces
                      .OrderBy(seatingPlaceWithDistance => seatingPlaceWithDistance.SeatingPlace.Number)
                      .Where(s => s.SeatingPlace.IsAvailable())
                      .Where(s => s.SeatingPlace.MatchCategory(pricingCategory))
-                 )
+                )
         {
             if (seatingPlacesWithDistancePrevious.AreAdjacentSeats(seatingPlaceWithDistance))
             {
-                if (!potentialAdjacentSeats.Any())
-                {
-                    potentialAdjacentSeats.Add(seatingPlacesWithDistancePrevious);
-                }
+                if (!potentialAdjacentSeats.Any()) potentialAdjacentSeats.Add(seatingPlacesWithDistancePrevious);
 
                 potentialAdjacentSeats.Add(seatingPlaceWithDistance);
             }
@@ -34,10 +32,8 @@ public static class AdjacentSeatingPlaces
             seatingPlacesWithDistancePrevious = seatingPlaceWithDistance;
 
             if (partyRequested.Party.Matches(potentialAdjacentSeats))
-            {
                 seatingPlacesWithDistancePrevious =
                     groupsOfAdjacentSeats.AddGroupOfPlaceWithDistances(potentialAdjacentSeats);
-            }
         }
 
         return groupsOfAdjacentSeats.Any()
@@ -52,6 +48,7 @@ public static class AdjacentSeatingPlaces
         return bestOfGroupOfAdjacentSeats.SeatingPlaces.OrderBy(seatingPlace => seatingPlace.Number);
     }
 }
+
 internal class GroupOfAdjacentSeats(List<SeatingPlace> seatingPlaces, int sumOfDistance)
 {
     public List<SeatingPlace> SeatingPlaces { get; } = seatingPlaces;

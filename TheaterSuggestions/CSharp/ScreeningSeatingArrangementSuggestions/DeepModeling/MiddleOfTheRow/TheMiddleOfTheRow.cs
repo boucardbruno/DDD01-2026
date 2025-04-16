@@ -27,7 +27,7 @@ public static class TheMiddleOfTheRow
                 seatingPlace.Number - (middleOfTheRow + OffsetRightPart())));
         return seatingPlacesWithDistanceRightPart;
     }
-    
+
     private static IEnumerable<SeatingPlaceWithDistance> SeatingPlacesWithDistanceLeftPart(Row row, int middleOfTheRow)
     {
         // Left part    A1:4, A2:3, A3:2, A4:1, A5:0,
@@ -35,7 +35,7 @@ public static class TheMiddleOfTheRow
             .Take(middleOfTheRow)
             .Select(seatingPlace => new SeatingPlaceWithDistance(
                 seatingPlace, // 5 - (A1 + 1)
-                (middleOfTheRow + OffsetLeftPartForRowSizeOdd(row)) - seatingPlace.Number));
+                middleOfTheRow + OffsetLeftPartForRowSizeOdd(row) - seatingPlace.Number));
         return seatingPlacesWithDistanceLeftPart;
     }
 

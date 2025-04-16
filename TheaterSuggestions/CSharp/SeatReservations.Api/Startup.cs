@@ -1,6 +1,4 @@
-﻿using ScreeningSeatingArrangementSuggestions.Infra;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
-using SeatsSuggestions.Port;
+﻿using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
 
 namespace SeatReservations.Api;
 

@@ -1,8 +1,4 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
-using ScreeningSeatingArrangementSuggestions.Infra;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
-using SeatsSuggestions.Port;
+﻿using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
 
 namespace AuditoriumLayout.Api;
 

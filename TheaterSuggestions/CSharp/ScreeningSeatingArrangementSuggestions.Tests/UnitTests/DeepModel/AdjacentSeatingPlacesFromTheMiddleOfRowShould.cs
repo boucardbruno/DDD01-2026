@@ -8,7 +8,7 @@ namespace SeatsSuggestions.Tests.UnitTests.DeepModel;
 
 public class AdjacentSeatingPlacesFromTheMiddleOfRowShould
 {
-     [Test]
+    [Test]
     public void
         Offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
     {
@@ -41,7 +41,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowShould
         Check.That(seatingPlaces)
             .ContainsExactly(a5, a6);
     }
-    
+
     [Test]
     public void
         Offer_seating_places_from_the_middle_of_the_row_when_the_row_size_is_odd_and_party_size_is_greater_than_one()
@@ -74,7 +74,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowShould
         Check.That(seatingPlaces)
             .ContainsExactly(a5, a6);
     }
-    
+
     [Test]
     public void Offer_seating_places_adjacent_of_the_row_when_the_row_size_is_even_and_party_size_is_greater_than_one()
     {
@@ -102,7 +102,7 @@ public class AdjacentSeatingPlacesFromTheMiddleOfRowShould
 
         var offerAdjacentSeatingPlaces =
             AdjacentSeatingPlaces.OfferAdjacentSeatingPlace(seatingPlacesWithDistance, pricingCategory, partySize);
-        
+
         Check.That(offerAdjacentSeatingPlaces)
             .ContainsExactly(a5, a6);
     }

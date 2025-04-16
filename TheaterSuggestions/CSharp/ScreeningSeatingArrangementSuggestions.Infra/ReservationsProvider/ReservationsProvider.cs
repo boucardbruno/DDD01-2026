@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
+namespace SeatingSuggestions.Infra.ReservationsProvider;
 
 public class ReservationsProvider : IProvideCurrentReservations
 {
-    private readonly Dictionary<string, ReservedSeatsDto> _repository = new();
+    private readonly Dictionary<string, ReservedSeatsDto?> _repository = new();
 
     public ReservationsProvider()
     {
@@ -27,14 +27,14 @@ public class ReservationsProvider : IProvideCurrentReservations
             }
     }
 
-    public ReservedSeatsDto GetReservedSeats(string showId)
+    public ReservedSeatsDto? GetReservedSeats(string showId)
     {
         if (_repository.ContainsKey(showId)) return _repository[showId];
 
         return new ReservedSeatsDto();
     }
 
-    private static string GetExecutingAssemblyDirectoryFullPath()
+    private static string? GetExecutingAssemblyDirectoryFullPath()
     {
         var directoryName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 

@@ -1,11 +1,9 @@
 ﻿using System.Linq;
 using NFluent;
 using NUnit.Framework;
-using ScreeningSeatingArrangementSuggestions.Infra;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumSeatingAdaptater;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
+using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
+using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
+using SeatingSuggestions.Infra.ReservationsProvider;
 
 namespace SeatsSuggestions.Tests.UnitTests;
 

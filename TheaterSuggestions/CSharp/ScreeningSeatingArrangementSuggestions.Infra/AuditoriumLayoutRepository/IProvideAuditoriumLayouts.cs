@@ -1,4 +1,4 @@
-﻿namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+﻿namespace SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 
 public interface IProvideAuditoriumLayouts
 {

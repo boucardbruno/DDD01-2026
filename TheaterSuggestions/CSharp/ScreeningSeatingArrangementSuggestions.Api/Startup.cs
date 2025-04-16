@@ -1,7 +1,8 @@
-﻿using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumSeatingAdaptater;
-using ScreeningSeatingArrangementSuggestions.Infra.Adapter.ReservationsProvider;
+﻿using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
+using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
+using SeatingSuggestions.Infra.ReservationsProvider;
 using SeatsSuggestions;
+using SeatsSuggestions.Port;
 
 namespace SeatingArrangement.Api;
 

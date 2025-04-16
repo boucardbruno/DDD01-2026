@@ -10,20 +10,16 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
     public List<SeatingPlace> SeatingPlaces { get; } = seatingPlaces;
 
     public SeatingOptionIsSuggested SuggestSeatingOption(PartyRequested partyRequested, PricingCategory pricingCategory)
-    { 
+    {
         var seatAllocation = new SeatingOptionIsSuggested(partyRequested, pricingCategory);
-        
+
         foreach (var seat in OfferAdjacentSeatsNearerTheMiddleOfRow(partyRequested, pricingCategory))
-        {
             if (seat.IsAvailable() && seat.MatchCategory(pricingCategory))
             {
                 seatAllocation.AddSeat(seat);
-                if (seatAllocation.MatchExpectation())
-                {
-                    return seatAllocation;
-                }
+                if (seatAllocation.MatchExpectation()) return seatAllocation;
             }
-        }
+
         return new SeatingOptionIsNotAvailable(partyRequested, pricingCategory);
     }
 
@@ -43,11 +39,12 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
                 ? seatingPlacesSuggested.Allocate()
                 : seatingPlace)
             .ToList();
-        
+
         return new Row(Name, seatingPlaces);
     }
-    
-    private IEnumerable<SeatingPlace> OfferAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested, PricingCategory pricingCategory)
+
+    private IEnumerable<SeatingPlace> OfferAdjacentSeatsNearerTheMiddleOfRow(PartyRequested partyRequested,
+        PricingCategory pricingCategory)
     {
         var offerSeatsNearerTheMiddleOfTheRow = TheMiddleOfTheRow.OfferSeatsNearerTheMiddleOfTheRow(this);
 
@@ -55,7 +52,7 @@ public class Row(string name, List<SeatingPlace> seatingPlaces) : ValueType<Row>
         {
             var offerAdjacentSeatsNearerTheMiddleOfRow = AdjacentSeatingPlaces
                 .OfferAdjacentSeatingPlace(offerSeatsNearerTheMiddleOfTheRow, pricingCategory, partyRequested);
-            
+
             return offerAdjacentSeatsNearerTheMiddleOfRow;
         }
 

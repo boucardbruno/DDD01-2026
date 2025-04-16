@@ -22,7 +22,7 @@ public class SuggestionsAreMade
         var seatingPlaces = ForCategory[pricingCategory]
             .SelectMany(s => s.SuggestedSeats)
             .ToList();
-        
+
         return seatingPlaces.Select(s => s.ToString());
     }
 

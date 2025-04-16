@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace ScreeningSeatingArrangementSuggestions.Infra.Adapter.AuditoriumLayoutRepository;
+namespace SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 
 public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
 {
@@ -14,9 +14,7 @@ public class AuditoriumLayoutRepository : IProvideAuditoriumLayouts
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             directoryName = $"{GetExecutingAssemblyDirectoryFullPath()}/AuditoriumLayouts/";
-
-        Console.WriteLine(directoryName);
-
+        
         foreach (var fileFullName in Directory.EnumerateFiles($"{directoryName}"))
             if (fileFullName.Contains("_theater.json"))
             {

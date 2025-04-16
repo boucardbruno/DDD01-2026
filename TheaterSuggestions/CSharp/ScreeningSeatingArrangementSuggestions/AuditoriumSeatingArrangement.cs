@@ -1,12 +1,14 @@
-﻿using Value.Shared;
+﻿using Value;
+using Value.Shared;
 
 namespace SeatsSuggestions;
 
-public class AuditoriumSeatingArrangement(Dictionary<string, Row> rows) : Value.ValueType<AuditoriumSeatingArrangement>
+public class AuditoriumSeatingArrangement(Dictionary<string, Row> rows) : ValueType<AuditoriumSeatingArrangement>
 {
     public IReadOnlyDictionary<string, Row> Rows => rows;
 
-    public SeatingOptionIsSuggested SuggestSeatingOptionFor(PartyRequested partyRequested, PricingCategory pricingCategory)
+    public SeatingOptionIsSuggested SuggestSeatingOptionFor(PartyRequested partyRequested,
+        PricingCategory pricingCategory)
     {
         foreach (var row in rows.Values)
         {
@@ -28,9 +30,8 @@ public class AuditoriumSeatingArrangement(Dictionary<string, Row> rows) : Value.
         var newRows = new Dictionary<string, Row>(Rows.ToDictionary());
 
         foreach (var seatingPlaceSuggested in seatingPlacesSuggested)
-        {
-            newRows[seatingPlaceSuggested.RowName] = newRows[seatingPlaceSuggested.RowName].Allocate(seatingPlaceSuggested);
-        }
+            newRows[seatingPlaceSuggested.RowName] =
+                newRows[seatingPlaceSuggested.RowName].Allocate(seatingPlaceSuggested);
 
         return new AuditoriumSeatingArrangement(newRows);
     }

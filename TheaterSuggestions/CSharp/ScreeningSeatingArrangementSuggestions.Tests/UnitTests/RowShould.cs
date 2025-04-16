@@ -23,7 +23,4 @@ public class RowShould
         Check.That(rowSecondInstance).IsEqualTo(rowFirstInstance);
         Check.That(rowWithNewSeatingPlace).IsNotEqualTo(rowFirstInstance);
     }
-
-   
 }
-   
