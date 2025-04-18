@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider;
+package org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ReservationsProvider implements IProvideCurrentReservations {
+public class ReservationsProviderAdapter implements IProvideCurrentReservations {
 
     private final Map<String, ReservedSeatsDto> repository = new HashMap<>();
 
-    public ReservationsProvider() throws IOException {
+    public ReservationsProviderAdapter() throws IOException {
         var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
 
         try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {

@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium;
+package org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AuditoriumLayoutRepository implements IProvideAuditoriumLayouts {
+public class AuditoriumLayoutRepositoryAdapter implements IProvideAuditoriumLayouts {
 
     private final Map<String, AuditoriumDto> repository = new HashMap<>();
 
-    public AuditoriumLayoutRepository() throws IOException {
+    public AuditoriumLayoutRepositoryAdapter() throws IOException {
         var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
 
         try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {

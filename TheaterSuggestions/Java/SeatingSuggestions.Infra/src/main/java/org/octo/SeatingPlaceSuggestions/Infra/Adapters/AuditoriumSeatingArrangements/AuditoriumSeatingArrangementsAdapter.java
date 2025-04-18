@@ -1,14 +1,12 @@
-package org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditoriumseating;
+package org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumSeatingArrangements;
 
 import org.octo.SeatingPlaceSuggestions.Domain.*;
 import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideAuditoriumSeatingArrangements;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium.AuditoriumDto;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium.AuditoriumLayoutRepository;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium.IProvideAuditoriumLayouts;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium.SeatDto;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider.IProvideCurrentReservations;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider.ReservationsProvider;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider.ReservedSeatsDto;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.AuditoriumDto;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.IProvideAuditoriumLayouts;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.SeatDto;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider.IProvideCurrentReservations;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider.ReservedSeatsDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,13 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 
-public class AuditoriumSeatingArrangements implements IProvideAuditoriumSeatingArrangements {
+public class AuditoriumSeatingArrangementsAdapter implements IProvideAuditoriumSeatingArrangements {
 
     private final IProvideCurrentReservations reservedSeatsRepository;
     private final IProvideAuditoriumLayouts auditoriumLayoutRepository;
 
 
-    public AuditoriumSeatingArrangements(IProvideAuditoriumLayouts auditoriumLayoutRepository, IProvideCurrentReservations reservationsProvider) {
+    public AuditoriumSeatingArrangementsAdapter(IProvideAuditoriumLayouts auditoriumLayoutRepository, IProvideCurrentReservations reservationsProvider) {
         this.auditoriumLayoutRepository = auditoriumLayoutRepository;
         this.reservedSeatsRepository = reservationsProvider;
     }

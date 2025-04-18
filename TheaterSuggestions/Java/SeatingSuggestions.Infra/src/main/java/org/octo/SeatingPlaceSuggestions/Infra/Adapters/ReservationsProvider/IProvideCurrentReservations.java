@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider;
+package org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider;
 
 public interface IProvideCurrentReservations {
 

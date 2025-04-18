@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium;
+package org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

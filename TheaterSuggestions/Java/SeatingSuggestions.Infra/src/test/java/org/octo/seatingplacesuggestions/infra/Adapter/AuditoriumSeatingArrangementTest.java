@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
 import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideAuditoriumSeatingArrangements;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditorium.AuditoriumLayoutRepository;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.auditoriumseating.AuditoriumSeatingArrangements;
-import org.octo.SeatingPlaceSuggestions.Infra.Adapter.reservationsprovider.ReservationsProvider;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.AuditoriumLayoutRepositoryAdapter;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumSeatingArrangements.AuditoriumSeatingArrangementsAdapter;
+import org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider.ReservationsProviderAdapter;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class AuditoriumSeatingArrangementTest {
     @Test
     public void be_a_Value_Type() throws IOException {
         IProvideAuditoriumSeatingArrangements auditoriumSeatingArrangements =
-                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+                new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
 
         ShowID showIdWithoutReservationYet = new ShowID("18");
         var auditoriumSeatingFirstInstance =
@@ -29,7 +29,7 @@ public class AuditoriumSeatingArrangementTest {
         assertThat(auditoriumSeatingSecondInstance)
                 .isEqualTo(auditoriumSeatingFirstInstance);
 
-        // Should not mutate existing instance
+        // Should not mutate existing instances
         SeatingPlace seatAllocated = auditoriumSeatingSecondInstance.getRows().values().iterator()
                 .next().seatingPlaces().getFirst().allocate();
         assertThat(seatAllocated).isInstanceOf(SeatingPlace.class);
