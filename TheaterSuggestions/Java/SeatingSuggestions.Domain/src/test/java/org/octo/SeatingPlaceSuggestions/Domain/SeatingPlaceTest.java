@@ -1,9 +1,6 @@
 package org.octo.SeatingPlaceSuggestions.Domain;
 
 import org.junit.jupiter.api.Test;
-import org.octo.SeatingPlaceSuggestions.Domain.PricingCategory;
-import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
-import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlaceAvailability;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -16,7 +13,7 @@ public class SeatingPlaceTest {
         // Two different instances with same values should be equals
         assertThat(secondInstance).isEqualTo(firstInstance);
 
-        // Should not mutate existing instance
+        // Should not mutate existing instances
         SeatingPlace seatingPlaceAllocated = secondInstance.allocate();
         assertThat(secondInstance).isEqualTo(firstInstance);
         assertThat(seatingPlaceAllocated).isNotEqualTo(firstInstance);

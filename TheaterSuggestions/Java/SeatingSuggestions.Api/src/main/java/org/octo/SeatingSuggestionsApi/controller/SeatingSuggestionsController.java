@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/SeatingSuggestions")
 public class SeatingSuggestionsController {
 
-
     private final IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions;
 
     public SeatingSuggestionsController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
@@ -24,7 +23,8 @@ public class SeatingSuggestionsController {
     // GET api/SeatsSuggestions?showId=5&party=3
     @GetMapping(produces = "application/json")
     public ResponseEntity<SuggestionsAreMade> makeSuggestions(@RequestParam String showId, @RequestParam int party) {
-        var suggestionsMade = provideSeatingArrangementRecommenderSuggestions.makeSuggestions(new ShowID(showId),new PartyRequested(party));
+        var suggestionsMade = provideSeatingArrangementRecommenderSuggestions
+                .makeSuggestions(new ShowID(showId),new PartyRequested(party));
         return ResponseEntity.ok(suggestionsMade);
     }
 }

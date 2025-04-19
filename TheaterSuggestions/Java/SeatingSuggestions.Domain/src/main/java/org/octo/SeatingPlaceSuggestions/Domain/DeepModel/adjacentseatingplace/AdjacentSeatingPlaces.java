@@ -69,6 +69,6 @@ public class AdjacentSeatingPlaces {
                 .sorted(Comparator.comparing(GroupOfAdjacentSeats::SumOfDistance))
                 .toList();
 
-        return bestOfGroupOfAdjacentSeats.get(0).SeatingPlaces();
+        return bestOfGroupOfAdjacentSeats.getFirst().SeatingPlaces();
     }
 }

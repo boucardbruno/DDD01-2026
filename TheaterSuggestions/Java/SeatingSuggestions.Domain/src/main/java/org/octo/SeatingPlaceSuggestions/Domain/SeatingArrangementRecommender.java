@@ -14,23 +14,6 @@ public class SeatingArrangementRecommender implements IProvideSeatingArrangement
         this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
     }
 
-    private static List<SuggestionIsMade> giveMeSuggestionsFor(
-            AuditoriumSeatingArrangement auditoriumSeatingArrangement, PartyRequested partyRequested, PricingCategory pricingCategory) {
-        var foundedSuggestions = new ArrayList<SuggestionIsMade>();
-
-        for (int i = 0; i < NUMBER_OF_SUGGESTIONS; i++) {
-            var seatingOptionSuggested = auditoriumSeatingArrangement.suggestSeatingOptionFor(partyRequested, pricingCategory);
-
-            if (seatingOptionSuggested.matchExpectation()) {
-                auditoriumSeatingArrangement = auditoriumSeatingArrangement.allocate(seatingOptionSuggested.seats());
-
-                foundedSuggestions.add(new SuggestionIsMade(seatingOptionSuggested));
-            }
-        }
-
-        return foundedSuggestions;
-    }
-
     @Override
     public SuggestionsAreMade makeSuggestions(ShowID showId, PartyRequested partyRequested) {
 
@@ -45,5 +28,25 @@ public class SeatingArrangementRecommender implements IProvideSeatingArrangement
         if (suggestionsMade.matchExpectations()) return suggestionsMade;
 
         return new SuggestionsAreAreNotAvailable(showId, partyRequested);
+    }
+
+    private static List<SuggestionIsMade> giveMeSuggestionsFor(
+            AuditoriumSeatingArrangement auditoriumSeatingArrangement,
+            PartyRequested partyRequested,
+            PricingCategory pricingCategory) {
+
+        var foundedSuggestions = new ArrayList<SuggestionIsMade>();
+
+        for (int i = 0; i < NUMBER_OF_SUGGESTIONS; i++) {
+            var seatingOptionSuggested = auditoriumSeatingArrangement.suggestSeatingOptionFor(partyRequested, pricingCategory);
+
+            if (seatingOptionSuggested.matchExpectation()) {
+                auditoriumSeatingArrangement = auditoriumSeatingArrangement.allocate(seatingOptionSuggested.seats());
+
+                foundedSuggestions.add(new SuggestionIsMade(seatingOptionSuggested));
+            }
+        }
+
+        return foundedSuggestions;
     }
 }
