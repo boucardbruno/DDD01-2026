@@ -14,7 +14,7 @@ public class AuditoriumSeatingArrangementsShould
     public void Be_a_Value_Type()
     {
         var auditoriumLayoutAdapter =
-            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var showIdWithoutReservationYet = new ShowId("18");
         var auditoriumSeatingFirstInstance =
             auditoriumLayoutAdapter.FindByShowId(showIdWithoutReservationYet);

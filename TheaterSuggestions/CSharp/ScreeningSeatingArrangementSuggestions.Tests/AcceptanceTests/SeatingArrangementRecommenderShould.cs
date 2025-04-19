@@ -21,7 +21,7 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -40,7 +40,7 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -61,7 +61,7 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(2);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
@@ -86,7 +86,7 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            new AuditoriumSeatingAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 

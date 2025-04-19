@@ -13,8 +13,8 @@ public class Startup
     {
         services.AddControllers();
 
-        var auditoriumLayoutRepository = new AuditoriumLayoutRepository();
-        var reservationsProvider = new ReservationsProvider();
+        var auditoriumLayoutRepository = new AuditoriumLayoutRepositoryAdapter();
+        var reservationsProvider = new ReservationsProviderAdapter();
         var seatingArrangementRecommender = new SeatingArrangementRecommender(
             new AuditoriumSeatingAdapter(auditoriumLayoutRepository, reservationsProvider));
 

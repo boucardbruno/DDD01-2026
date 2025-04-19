@@ -16,9 +16,9 @@ public class SeatingArrangementRecommender(IAdaptAuditoriumSeating auditoriumSea
         foreach (var pricingCategory in Enum.GetValues<PricingCategory>())
             suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
 
-        if (suggestionsMade.MatchExpectations()) return suggestionsMade;
-
-        return new SuggestionsAreNotAvailable(showId, partyRequested);
+        return suggestionsMade.MatchExpectations() ? 
+            suggestionsMade : 
+            new SuggestionsAreNotAvailable(showId, partyRequested);
     }
 
     private static IEnumerable<SuggestionIsMade> GiveMeSuggestionsFor(

@@ -11,7 +11,7 @@ public class InfrastructureShould
     [Test]
     public void Allow_us_to_retrieve_reserved_seats_for_a_given_ShowId()
     {
-        var seatsRepository = new ReservationsProvider();
+        var seatsRepository = new ReservationsProviderAdapter();
         var reservedSeatsDto = seatsRepository.GetReservedSeats("1");
 
         Check.That(reservedSeatsDto!.ReservedSeats).HasSize(19);
@@ -20,7 +20,7 @@ public class InfrastructureShould
     [Test]
     public void Allow_us_to_retrieve_AuditoriumLayout_for_a_given_ShowId()
     {
-        var eventRepository = new AuditoriumLayoutRepository();
+        var eventRepository = new AuditoriumLayoutRepositoryAdapter();
         var theaterDto = eventRepository.GetAuditoriumSeatingFor("2");
 
         Check.That(theaterDto.Rows).HasSize(6);

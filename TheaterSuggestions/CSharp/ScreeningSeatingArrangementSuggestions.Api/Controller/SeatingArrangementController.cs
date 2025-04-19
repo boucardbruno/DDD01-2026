@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using SeatsSuggestions;
 using SeatsSuggestions.Port;
 
-namespace SeatingArrangement.Api.Controllers;
+namespace SeatingArrangement.Api.Controller;
 
 [ApiController]
 [Route("[controller]")]
