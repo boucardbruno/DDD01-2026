@@ -15,7 +15,7 @@ public class SuggestionsAreMade
     public ShowId ShowId { get; }
     public PartyRequested PartyRequested { get; }
 
-    private Dictionary<PricingCategory, List<SuggestionIsMade>> ForCategory { get; } = new();
+    public Dictionary<PricingCategory, List<SuggestionIsMade>> ForCategory { get; } = new();
 
     public IEnumerable<string> SeatNames(PricingCategory pricingCategory)
     {
