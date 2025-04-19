@@ -15,7 +15,7 @@ public class AuditoriumLayoutRepositoryAdapter implements IProvideAuditoriumLayo
     private final Map<String, AuditoriumDto> repository = new HashMap<>();
 
     public AuditoriumLayoutRepositoryAdapter() throws IOException {
-        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
+        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
 
         try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {
 

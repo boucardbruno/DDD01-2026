@@ -15,7 +15,7 @@ public class ReservationsProviderAdapter implements IProvideCurrentReservations 
     private final Map<String, ReservedSeatsDto> repository = new HashMap<>();
 
     public ReservationsProviderAdapter() throws IOException {
-        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
+        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
 
         try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {
 

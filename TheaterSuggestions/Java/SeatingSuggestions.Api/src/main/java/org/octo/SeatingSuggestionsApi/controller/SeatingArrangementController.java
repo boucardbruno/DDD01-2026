@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/SeatingSuggestions")
-public class SeatingSuggestionsController {
+public class SeatingArrangementController {
 
     private final IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions;
 
-    public SeatingSuggestionsController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
+    public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
         this.provideSeatingArrangementRecommenderSuggestions = provideSeatingArrangementRecommenderSuggestions;
     }
 
-    // GET api/SeatsSuggestions?showId=5&party=3
+    // GET SeatsSuggestions?showId=5&party=3
     @GetMapping(produces = "application/json")
     public ResponseEntity<SuggestionsAreMade> makeSuggestions(@RequestParam String showId, @RequestParam int party) {
         var suggestionsMade = provideSeatingArrangementRecommenderSuggestions
