@@ -11,7 +11,7 @@ public class SeatingArrangementController(
     ISeatingArrangementRecommenderSuggestions seatingArrangementRecommenderSuggestions)
     : ControllerBase
 {
-    // GET api/SeatsSuggestions?showId=5&party=3
+    // GET SeatingArrangement?showId=5&party=3
     [HttpGet]
     public ActionResult<string> Get([FromQuery(Name = "showId")] string showId, [FromQuery(Name = "party")] int party)
     {
@@ -20,7 +20,6 @@ public class SeatingArrangementController(
         var partyRequested = new PartyRequested(party);
         var suggestions = seatingArrangementRecommenderSuggestions.MakeSuggestions(id, partyRequested);
         // Domain => Infra
-        var serializeObject = JsonConvert.SerializeObject(suggestions, Formatting.Indented);
-        return serializeObject;
+        return JsonConvert.SerializeObject(suggestions, Formatting.Indented);
     }
 }
