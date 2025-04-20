@@ -6,12 +6,12 @@ using SeatsSuggestions.Port;
 namespace SeatingArrangement.Api.Controller;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/SeatingSuggestions")]
 public class SeatingArrangementController(
     ISeatingArrangementRecommenderSuggestions seatingArrangementRecommenderSuggestions)
     : ControllerBase
 {
-    // GET SeatingArrangement?showId=5&party=3
+    // GET api/SeatingSuggestions?showId=5&party=3
     [HttpGet]
     public ActionResult<string> Get([FromQuery(Name = "showId")] string showId, [FromQuery(Name = "party")] int party)
     {

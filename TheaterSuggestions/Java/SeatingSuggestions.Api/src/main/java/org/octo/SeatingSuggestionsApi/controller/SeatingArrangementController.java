@@ -18,16 +18,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/SeatingArrangement/suggestions")
+@RequestMapping("api/SeatingSuggestions")
 public class SeatingArrangementController {
 
     private final IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions;
 
-    public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions, ObjectMapper jacksonObjectMapper) {
+
+    public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
         this.provideSeatingArrangementRecommenderSuggestions = provideSeatingArrangementRecommenderSuggestions;
     }
 
-    // GET SeatsSuggestions?showId=5&party=3
+    // GET api/SeatingSuggestions?showId=5&party=3
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> makeSuggestions(@RequestParam String showId, @RequestParam int party) throws JsonProcessingException {
         var suggestionsMade = provideSeatingArrangementRecommenderSuggestions

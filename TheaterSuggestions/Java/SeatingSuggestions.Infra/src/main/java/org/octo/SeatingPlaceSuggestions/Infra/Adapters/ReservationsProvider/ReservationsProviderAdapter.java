@@ -5,19 +5,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.nio.file.Paths.get;
+import static org.octo.SeatingPlaceSuggestions.Infra.Adapters.StubDirectory.getStubDirectory;
 
 public class ReservationsProviderAdapter implements IProvideCurrentReservations {
 
     private final Map<String, ReservedSeatsDto> repository = new HashMap<>();
 
     public ReservationsProviderAdapter() throws IOException {
-        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
 
-        try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {
+        var jsonDirectory = getStubDirectory();
+
+        try (var directoryStream = Files.newDirectoryStream(get(jsonDirectory))) {
 
             for (Path path : directoryStream) {
                 if (path.toString().contains("_booked_seats.json")) {

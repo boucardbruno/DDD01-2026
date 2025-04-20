@@ -10,13 +10,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.octo.SeatingPlaceSuggestions.Infra.Adapters.StubDirectory.getStubDirectory;
+
 public class AuditoriumLayoutRepositoryAdapter implements IProvideAuditoriumLayouts {
 
     private final Map<String, AuditoriumDto> repository = new HashMap<>();
 
     public AuditoriumLayoutRepositoryAdapter() throws IOException {
-        var jsonDirectory = Paths.get(System.getProperty("user.dir")).getParent().getParent().toString() + "/Stubs/AuditoriumLayouts";
-
+        var jsonDirectory = getStubDirectory();
         try (var directoryStream = Files.newDirectoryStream(Paths.get(jsonDirectory))) {
 
             for (Path path : directoryStream) {
