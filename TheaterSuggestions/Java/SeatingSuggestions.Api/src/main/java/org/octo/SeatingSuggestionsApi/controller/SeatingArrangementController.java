@@ -1,9 +1,16 @@
 package org.octo.SeatingSuggestionsApi.controller;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
 import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreMade;
 import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,20 +18,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/SeatingSuggestions")
+@RequestMapping("/SeatingArrangement/suggestions")
 public class SeatingArrangementController {
 
     private final IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions;
 
-    public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
+    public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions, ObjectMapper jacksonObjectMapper) {
         this.provideSeatingArrangementRecommenderSuggestions = provideSeatingArrangementRecommenderSuggestions;
     }
 
     // GET SeatsSuggestions?showId=5&party=3
-    @GetMapping(produces = "application/json")
-    public ResponseEntity<SuggestionsAreMade> makeSuggestions(@RequestParam String showId, @RequestParam int party) {
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> makeSuggestions(@RequestParam String showId, @RequestParam int party) throws JsonProcessingException {
         var suggestionsMade = provideSeatingArrangementRecommenderSuggestions
                 .makeSuggestions(new ShowID(showId),new PartyRequested(party));
-        return ResponseEntity.ok(suggestionsMade);
+        return new ResponseEntity<>(getSerialized(suggestionsMade), HttpStatus.OK);
+    }
+
+    private static String getSerialized(SuggestionsAreMade suggestionsMade) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
+                .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(suggestionsMade);
     }
 }

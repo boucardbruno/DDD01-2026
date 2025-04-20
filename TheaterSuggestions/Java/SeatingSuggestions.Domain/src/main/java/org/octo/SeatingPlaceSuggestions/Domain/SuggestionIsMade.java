@@ -2,6 +2,7 @@ package org.octo.SeatingPlaceSuggestions.Domain;
 
 import java.util.List;
 
+
 public class SuggestionIsMade {
 
     private final List<SeatingPlace> suggestedSeats;
