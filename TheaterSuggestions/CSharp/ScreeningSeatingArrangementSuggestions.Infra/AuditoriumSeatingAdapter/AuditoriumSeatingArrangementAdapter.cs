@@ -5,7 +5,7 @@ using SeatsSuggestions.Port;
 
 namespace SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 
-public class AuditoriumSeatingAdapter(
+public class AuditoriumSeatingArrangementAdapter(
     IProvideAuditoriumLayouts auditoriumLayoutRepository,
     IProvideCurrentReservations reservationsProvider) : IAdaptAuditoriumSeating
 {

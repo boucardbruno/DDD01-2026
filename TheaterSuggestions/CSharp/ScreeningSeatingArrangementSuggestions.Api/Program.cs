@@ -20,7 +20,7 @@ public class Program
         var auditoriumLayoutRepository = new AuditoriumLayoutRepositoryAdapter();
         var reservationsProvider = new ReservationsProviderAdapter();
         var seatingArrangementRecommender = new SeatingArrangementRecommender(
-            new AuditoriumSeatingAdapter(auditoriumLayoutRepository, reservationsProvider));
+            new AuditoriumSeatingArrangementAdapter(auditoriumLayoutRepository, reservationsProvider));
         builder.Services.AddSingleton<ISeatingArrangementRecommenderSuggestions>(seatingArrangementRecommender);
 
         var app = builder.Build();
