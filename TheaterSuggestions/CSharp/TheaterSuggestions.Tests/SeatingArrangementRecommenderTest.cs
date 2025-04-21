@@ -19,11 +19,16 @@ namespace SeatsSuggestions.Tests
             //  A : (2) (2)  1  (1) (1) (1) (1) (1) (2) (2)
             //  B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
             const string showId = "1";
+            const int partyRequested = 1;
+                
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-            // Remove this assertion to the expected one with outcome : A3
-            var auditoriumSeatingArrangement = auditoriumSeatingArrangements.FindByShowId(showId);
-            Check.That(auditoriumSeatingArrangement.Rows).HasSize(2);
+            auditoriumSeatingArrangements.FindByShowId(showId);
+
+            // Make this assertion real to the expected one with outcome:
+            var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+            
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A3");
         }
 
         [Test]
@@ -34,12 +39,16 @@ namespace SeatsSuggestions.Tests
             // A : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
             // B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
             const string showId = "5";
+            const int partyRequested = 1;
+
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            auditoriumSeatingArrangements.FindByShowId(showId);
+
+            // Make it this assertion real to the expected one with outcome:
+            var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
             
-            // Remove this assertion to the expected one with outcome : SuggestionNotAvailable
-            var auditoriumSeatingArrangement = auditoriumSeatingArrangements.FindByShowId(showId);
-            Check.That(auditoriumSeatingArrangement.Rows).HasSize(2);
+            Check.That(suggestionsAreMade).IsInstanceOf<SuggestionsAreNotAvailable>();
         }
         
         [Test]
@@ -50,12 +59,17 @@ namespace SeatsSuggestions.Tests
             //  A: 2   2   1   1   1   1   1   1   2   2
             //  B: 2   2   1   1   1   1   1   1   2   2
             const string showId = "17";
+            const int partyRequested = 2; 
+
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
+            auditoriumSeatingArrangements.FindByShowId(showId);
+
+            // Make it this assertion real to the expected one with outcome :
+            var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
             
-            // Remove this assertion to the expected one with outcome : A1, A2
-            var auditoriumSeatingArrangement = auditoriumSeatingArrangements.FindByShowId(showId);
-            Check.That(auditoriumSeatingArrangement.Rows).HasSize(2);
+            var seatNames = suggestionsAreMade.SeatNames(PricingCategory.Second);
+            Check.That(seatNames).ContainsExactly("A1", "A2", "A9", "A10", "B1", "B2");
         }
         
         /*
@@ -74,14 +88,18 @@ namespace SeatsSuggestions.Tests
             //  E: 3   3   3   3   3   3   3   3   3   3
             //  F: 3   3   3   3   3   3   3   3   3   3
             const string showId = "18";
+            const int partyRequested = 1; 
             var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-            // Remove this assertion to the expected one with outcome :
-            // PricingCategory.First => "A3", "A4", "A5"
-            // PricingCategory.Second => "A1", "A2", "A9"
-            // PricingCategory.Third => "E1", "E2", "E3"
-            var auditoriumSeatingArrangement = auditoriumSeatingArrangements.FindByShowId(showId);
-            Check.That(auditoriumSeatingArrangement.Rows).HasSize(6);
+            auditoriumSeatingArrangements.FindByShowId(showId);
+
+            // Make it this assertion real to the expected one with outcome:
+            var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A3", "A4", "A5");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Second)).ContainsExactly("A1", "A2", "A9");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Third)).ContainsExactly("E1", "E2", "E3");
+            Check.That(suggestionsAreMade.SeatNames(PricingCategory.Third)).ContainsExactly("E1", "E2", "E3");
         }
     }
 }
