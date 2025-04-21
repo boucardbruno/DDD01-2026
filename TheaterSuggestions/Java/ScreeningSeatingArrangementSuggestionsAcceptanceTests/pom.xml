@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.weaveit</groupId>
+        <groupId>org.octo</groupId>
         <artifactId>ScreeningSeatingArrangementSuggestionsParent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -15,16 +15,16 @@
     <name>SeatingPlaceSuggestionsAcceptanceTests</name>
 
     <dependencies>
+
         <dependency>
-            <groupId>org.weaveit</groupId>
+            <groupId>org.octo</groupId>
             <artifactId>ExternalDependencies</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>org.weaveit</groupId>
+            <groupId>org.octo</groupId>
             <artifactId>ScreeningSeatingArrangementSuggestions</artifactId>
         </dependency>
-
-
         <!-- TEST dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -32,6 +32,7 @@
             <version>5.9.1</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
