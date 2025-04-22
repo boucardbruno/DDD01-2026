@@ -24,10 +24,11 @@ class SeatingArrangementRecommenderTest {/*
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-        auditoriumSeatingArrangements.findByShowId(showId);
 
         // Make this assertion real to the expected one with outcomes:
-        var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
+
         assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3");
     }
 
@@ -42,10 +43,11 @@ class SeatingArrangementRecommenderTest {/*
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-        auditoriumSeatingArrangements.findByShowId(showId);
 
         // Make this assertion real to the expected one with outcomes: SuggestionNotAvailable
-        var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
+
         assertThat(suggestionsAreMade).isInstanceOf(SuggestionsAreAreNotAvailable.class);
     }
 
@@ -61,10 +63,11 @@ class SeatingArrangementRecommenderTest {/*
 
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-        auditoriumSeatingArrangements.findByShowId(showId);
 
         // Make this assertion real to the expected one with outcomes:
-        var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+        var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
+
         assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9", "A10", "B1", "B2");
 
     }
@@ -84,10 +87,11 @@ class SeatingArrangementRecommenderTest {/*
 
        var auditoriumSeatingArrangements =
                new AuditoriumSeatingArrangements(new AuditoriumLayoutRepository(), new ReservationsProvider());
-        auditoriumSeatingArrangements.findByShowId(showId);
 
        // Make this assertion real to the expected one with outcomes:
-       var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
+       var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+       var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
+
        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3","A4","A5");
        assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9");
        assertThat(suggestionsAreMade.seatNames(PricingCategory.THIRD)).containsExactly("E1", "E2", "E3");
