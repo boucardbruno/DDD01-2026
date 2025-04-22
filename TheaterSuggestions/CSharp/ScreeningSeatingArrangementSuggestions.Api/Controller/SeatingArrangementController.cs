@@ -8,7 +8,7 @@ namespace SeatingArrangement.Api.Controller;
 [ApiController]
 [Route("api/SeatingSuggestions")]
 public class SeatingArrangementController(
-    ISeatingArrangementRecommenderSuggestions seatingArrangementRecommenderSuggestions)
+    ISeatingArrangementRecommenderSuggestions hexagon)
     : ControllerBase
 {
     // GET api/SeatingSuggestions?showId=5&party=3
@@ -18,8 +18,14 @@ public class SeatingArrangementController(
         // Infra => Domain
         var id = new ShowId(showId);
         var partyRequested = new PartyRequested(party);
-        var suggestions = seatingArrangementRecommenderSuggestions.MakeSuggestions(id, partyRequested);
+        
+        var suggestionsMade = hexagon.MakeSuggestions(id, partyRequested);
+
         // Domain => Infra
-        return Results.Ok(JsonConvert.SerializeObject(suggestions, Formatting.Indented));
+        if (suggestionsMade is SuggestionsAreNotAvailable)
+        {
+            Results.NotFound($"No suggestion for showId:{showId} with party:{party}");
+        }
+        return Results.Ok(JsonConvert.SerializeObject(suggestionsMade, Formatting.Indented));
     }
 }

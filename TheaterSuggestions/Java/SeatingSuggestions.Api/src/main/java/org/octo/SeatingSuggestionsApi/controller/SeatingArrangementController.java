@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
+import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreAreNotAvailable;
 import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreMade;
 import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
 import org.springframework.http.HttpStatus;
@@ -21,18 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/SeatingSuggestions")
 public class SeatingArrangementController {
 
-    private final IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions;
+    private final IProvideSeatingArrangementRecommenderSuggestions hexagon;
 
 
     public SeatingArrangementController(IProvideSeatingArrangementRecommenderSuggestions provideSeatingArrangementRecommenderSuggestions) {
-        this.provideSeatingArrangementRecommenderSuggestions = provideSeatingArrangementRecommenderSuggestions;
+        this.hexagon = provideSeatingArrangementRecommenderSuggestions;
     }
 
     // GET api/SeatingSuggestions?showId=5&party=3
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> makeSuggestions(@RequestParam String showId, @RequestParam int party) throws JsonProcessingException {
-        var suggestionsMade = provideSeatingArrangementRecommenderSuggestions
-                .makeSuggestions(new ShowID(showId),new PartyRequested(party));
+        // Infra => Domain
+        ShowID ID = new ShowID(showId);
+        PartyRequested partyRequested = new PartyRequested(party);
+
+        var suggestionsMade = hexagon.makeSuggestions(ID, partyRequested);
+
+        // Domain => Infra
+        if (suggestionsMade instanceof SuggestionsAreAreNotAvailable) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         return new ResponseEntity<>(getSerialized(suggestionsMade), HttpStatus.OK);
     }
 
