@@ -46,7 +46,7 @@ class SeatingArrangementRecommenderTest {/*
 
         // Make this assertion real to the expected one with outcomes: SuggestionNotAvailable
         var suggestionsAreMade = new SuggestionsAreMade(showId, partyRequested);
-        assertInstanceOf(SuggestionsAreAreNotAvailable.class, suggestionsAreMade, "Suggestions made should be an instance of SuggestionNotAvailable");
+        assertThat(suggestionsAreMade).isInstanceOf(SuggestionsAreAreNotAvailable.class);
     }
 
     @Test
