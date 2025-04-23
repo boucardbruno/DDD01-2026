@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
-import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreAreNotAvailable;
 import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreMade;
 import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
 import org.springframework.http.HttpStatus;
