@@ -22,10 +22,6 @@ public class SeatingArrangementController(
         var suggestionsMade = hexagon.MakeSuggestions(id, partyRequested);
 
         // Domain => Infra
-        if (suggestionsMade is SuggestionsAreNotAvailable)
-        {
-            Results.NotFound($"No suggestion for showId:{showId} with party:{party}");
-        }
         return Results.Ok(JsonConvert.SerializeObject(suggestionsMade, Formatting.Indented));
     }
 }

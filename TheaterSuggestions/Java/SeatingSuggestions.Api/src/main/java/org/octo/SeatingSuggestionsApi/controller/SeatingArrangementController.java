@@ -39,10 +39,6 @@ public class SeatingArrangementController {
         var suggestionsMade = hexagon.makeSuggestions(ID, partyRequested);
 
         // Domain => Infra
-        if (suggestionsMade instanceof SuggestionsAreAreNotAvailable) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
         return new ResponseEntity<>(getSerialized(suggestionsMade), HttpStatus.OK);
     }
 
