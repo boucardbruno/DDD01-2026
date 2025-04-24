@@ -7,7 +7,7 @@ using SeatsSuggestions.Port;
 
 namespace SeatingArrangement.Api;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
@@ -16,12 +16,8 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
         builder.Services.AddSwaggerGen();
-     
-        var auditoriumLayoutRepository = new AuditoriumLayoutRepositoryAdapter();
-        var reservationsProvider = new ReservationsProviderAdapter();
-        var seatingArrangementRecommender = new SeatingArrangementRecommender(
-            new AuditoriumSeatingArrangementAdapter(auditoriumLayoutRepository, reservationsProvider));
-        builder.Services.AddSingleton<ISeatingArrangementRecommenderSuggestions>(seatingArrangementRecommender);
+
+        builder.Services.AddSingleton(BuildSeatingArrangementRecommender());
 
         var app = builder.Build();
 
@@ -41,4 +37,10 @@ public class Program
 
         app.Run();
     }
+
+    private static ISeatingArrangementRecommenderSuggestions BuildSeatingArrangementRecommender() =>
+        new SeatingArrangementRecommender(
+            new AuditoriumSeatingArrangementAdapter(
+                new AuditoriumLayoutRepositoryAdapter(), 
+                new ReservationsProviderAdapter()));
 }
