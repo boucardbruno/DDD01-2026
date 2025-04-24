@@ -63,11 +63,14 @@ public class SeatingArrangementRecommenderShould
         var auditoriumSeatingArrangements =
             new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
+        var seatNamesForFistCategory = suggestionsAreMade.SeatNames(PricingCategory.First);
+        Check.That(seatNamesForFistCategory).ContainsExactly("A5","A6","A3","A4","A7","A8");
 
-        var seatNames = suggestionsAreMade.SeatNames(PricingCategory.Second);
-        Check.That(seatNames).ContainsExactly("A1", "A2", "A9", "A10", "B1", "B2");
+        var seatNamesForSecondCategory = suggestionsAreMade.SeatNames(PricingCategory.Second);
+        Check.That(seatNamesForSecondCategory).ContainsExactly("A1", "A2", "A9", "A10", "B1", "B2");
     }
 
     [Test]

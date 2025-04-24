@@ -66,8 +66,10 @@ class SeatingArrangementRecommenderTest {
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
+
         var suggestionsAreMade = seatingArrangementRecommender.makeSuggestions(showId, partyRequested);
 
+        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A5","A6","A3","A4","A7","A8");
         assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9", "A10", "B1", "B2");
     }
 
