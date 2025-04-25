@@ -64,6 +64,8 @@ namespace SeatsSuggestions.Tests.AcceptanceTests
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
             var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
+            var seatNamesForFistCategory = suggestionsAreMade.SeatNames(PricingCategory.First);
+            Check.That(seatNamesForFistCategory).ContainsExactly("A3","A4","A5","A6","A7","A8");
 
             var seatNames = suggestionsAreMade.SeatNames(PricingCategory.Second);
             Check.That(seatNames).ContainsExactly("A1", "A2", "A9", "A10", "B1", "B2");
