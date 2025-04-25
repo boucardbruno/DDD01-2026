@@ -1,4 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
 using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
@@ -15,7 +14,6 @@ public static class Program
         
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
-        builder.Services.AddSwaggerGen();
 
         builder.Services.AddSingleton(BuildSeatingArrangementRecommender());
 
@@ -23,7 +21,7 @@ public static class Program
 
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger();
+            app.MapOpenApi();
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/openapi/v1.json", "version 1");

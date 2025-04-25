@@ -1,6 +1,7 @@
-@rootUrl = http://localhost:53622
+@rootUrl = https://localhost:57480
 
-GET {{rootUrl}}/api/SeatingSuggestions?showId=18&party=3
+GET {{rootUrl}}/api/SeatingSuggestions?showId=18&party=1
+
 ###
 
 
