@@ -1,7 +1,7 @@
 package org.octo.SeatingSuggestionsApi.service;
 
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingArrangementRecommender;
-import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivingPort.IProvideSeatingArrangementRecommenderSuggestions;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.AuditoriumLayoutRepositoryAdapter;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.IProvideAuditoriumLayouts;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumSeatingArrangements.AuditoriumSeatingArrangementsAdapter;

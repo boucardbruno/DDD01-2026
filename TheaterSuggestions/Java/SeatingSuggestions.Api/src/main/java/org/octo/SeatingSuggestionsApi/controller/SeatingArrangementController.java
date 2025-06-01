@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
 import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreMade;
-import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivingPort.IProvideSeatingArrangementRecommenderSuggestions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

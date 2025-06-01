@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Domain.port;
+package org.octo.SeatingPlaceSuggestions.Domain.DrivenPort;
 
 import org.octo.SeatingPlaceSuggestions.Domain.AuditoriumSeatingArrangement;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;

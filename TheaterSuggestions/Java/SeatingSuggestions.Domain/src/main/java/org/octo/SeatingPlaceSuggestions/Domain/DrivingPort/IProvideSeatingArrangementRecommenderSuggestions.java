@@ -1,4 +1,4 @@
-package org.octo.SeatingPlaceSuggestions.Domain.port;
+package org.octo.SeatingPlaceSuggestions.Domain.DrivingPort;
 
 import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;

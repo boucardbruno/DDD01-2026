@@ -1,7 +1,7 @@
 package org.octo.SeatingPlaceSuggestions.Domain;
 
-import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideAuditoriumSeatingArrangements;
-import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideSeatingArrangementRecommenderSuggestions;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivenPort.IProvideAuditoriumSeatingArrangements;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivingPort.IProvideSeatingArrangementRecommenderSuggestions;
 
 import java.util.ArrayList;
 import java.util.List;

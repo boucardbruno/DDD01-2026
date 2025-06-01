@@ -1,4 +1,5 @@
-﻿using SeatsSuggestions.Port;
+﻿using SeatsSuggestions.DrivenPort;
+using SeatsSuggestions.DrivingPort;
 
 namespace SeatsSuggestions;
 

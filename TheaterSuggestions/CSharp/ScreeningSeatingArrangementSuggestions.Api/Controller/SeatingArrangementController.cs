@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SeatsSuggestions;
-using SeatsSuggestions.Port;
+using SeatsSuggestions.DrivingPort;
 
 namespace SeatingArrangement.Api.Controller;
 

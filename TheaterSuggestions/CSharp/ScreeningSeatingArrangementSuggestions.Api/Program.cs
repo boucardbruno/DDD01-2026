@@ -2,7 +2,7 @@ using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
 using SeatsSuggestions;
-using SeatsSuggestions.Port;
+using SeatsSuggestions.DrivingPort;
 
 namespace SeatingArrangement.Api;
 

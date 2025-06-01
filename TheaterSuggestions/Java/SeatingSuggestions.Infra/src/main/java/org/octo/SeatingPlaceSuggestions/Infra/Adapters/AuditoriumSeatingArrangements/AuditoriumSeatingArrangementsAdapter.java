@@ -1,7 +1,7 @@
 package org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumSeatingArrangements;
 
 import org.octo.SeatingPlaceSuggestions.Domain.*;
-import org.octo.SeatingPlaceSuggestions.Domain.port.IProvideAuditoriumSeatingArrangements;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivenPort.IProvideAuditoriumSeatingArrangements;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.AuditoriumDto;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.IProvideAuditoriumLayouts;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.SeatDto;
