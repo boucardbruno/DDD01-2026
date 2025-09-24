@@ -5,7 +5,6 @@ import org.octo.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
