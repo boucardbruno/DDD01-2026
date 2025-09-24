@@ -5,6 +5,7 @@ import org.octo.externaldependencies.reservationsprovider.ReservationsProvider;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,9 +27,9 @@ class SeatingArrangementRecommenderTest {/*
 
         // Make this assertion real to the expected one with outcomes:
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-        var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
+        var seatingPlaces = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A3");
+        assertThat(seatingPlaces.stream().map(SeatingPlace::toString)).containsExactly("A3");
     }
 
     @Test
@@ -47,7 +48,7 @@ class SeatingArrangementRecommenderTest {/*
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.makeSuggestion(showId, partyRequested);
 
-        assertThat(suggestionsAreMade).isInstanceOf(SuggestionsAreAreNotAvailable.class);
+        assertThat(suggestionsAreMade).isEmpty();
     }
 }
 
