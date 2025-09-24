@@ -1,4 +1,5 @@
-﻿using ExternalDependencies.AuditoriumLayoutRepository;
+﻿using System.Linq;
+using ExternalDependencies.AuditoriumLayoutRepository;
 using ExternalDependencies.ReservationsProvider;
 using NFluent;
 using NUnit.Framework;
@@ -26,9 +27,8 @@ namespace SeatsSuggestions.Tests
             
             // Make this assertion real to the expected one with outcomes:
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-            var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
-            
-            Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A3");
+            var seatingPlaces = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
+            Check.That(seatingPlaces.Select(s => s.ToString())).ContainsExactly("A3");
         }
 
         [Test]
@@ -46,9 +46,9 @@ namespace SeatsSuggestions.Tests
             
             // Make it this assertion real to the expected one with outcomes:
             var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-            var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
+            var seatingPlaces  = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
             
-            Check.That(suggestionsAreMade).IsInstanceOf<SuggestionsAreNotAvailable>();
+            Check.That(seatingPlaces).IsEmpty();
         }
     }
 }
