@@ -13,7 +13,7 @@ public class AuditoriumLayoutRepositoryAdapter : IProvideAuditoriumLayouts
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             directoryName = $"{GetExecutingAssemblyDirectoryFullPath()}/AuditoriumLayouts/";
-        
+
         foreach (var fileFullName in Directory.EnumerateFiles($"{directoryName}"))
             if (fileFullName.Contains("_theater.json"))
             {

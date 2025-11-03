@@ -59,15 +59,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions.Infra\SeatingSuggestions.Infra.csproj" />
-        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\SeatingSuggestions.Domain.csproj" />
+        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions.Infra\SeatingSuggestions.Infra.csproj"/>
+        <ProjectReference Include="..\ScreeningSeatingArrangementSuggestions\SeatingSuggestions.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
-      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.1" />
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.1" />
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.1"/>
     </ItemGroup>
 
     <ItemGroup>

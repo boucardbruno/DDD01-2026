@@ -1,9 +1,9 @@
 package org.octo.seatingplacesuggestions.infra.Adapter;
 
 import org.junit.jupiter.api.Test;
+import org.octo.SeatingPlaceSuggestions.Domain.DrivenPort.IProvideAuditoriumSeatingArrangements;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
 import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
-import org.octo.SeatingPlaceSuggestions.Domain.DrivenPort.IProvideAuditoriumSeatingArrangements;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumLayoutRepository.AuditoriumLayoutRepositoryAdapter;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.AuditoriumSeatingArrangements.AuditoriumSeatingArrangementsAdapter;
 import org.octo.SeatingPlaceSuggestions.Infra.Adapters.ReservationsProvider.ReservationsProviderAdapter;

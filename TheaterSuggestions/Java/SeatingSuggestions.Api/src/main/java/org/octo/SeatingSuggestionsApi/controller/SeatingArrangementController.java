@@ -1,13 +1,5 @@
 package org.octo.SeatingSuggestionsApi.controller;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import org.octo.SeatingPlaceSuggestions.Domain.PartyRequested;
-import org.octo.SeatingPlaceSuggestions.Domain.ShowID;
-import org.octo.SeatingPlaceSuggestions.Domain.SuggestionsAreMade;
 import org.octo.SeatingPlaceSuggestions.Domain.DrivingPort.IProvideSeatingArrangementRecommenderSuggestions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,22 +22,7 @@ public class SeatingArrangementController {
 
     // GET api/SeatingSuggestions?showId=5&party=3
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> makeSuggestions(@RequestParam String showId, @RequestParam int party) throws JsonProcessingException {
-        // Infra => Domain
-        ShowID ID = new ShowID(showId);
-        PartyRequested partyRequested = new PartyRequested(party);
-
-        var suggestionsMade = hexagon.makeSuggestions(ID, partyRequested);
-
-        // Domain => Infra
-        return new ResponseEntity<>(getSerialized(suggestionsMade), HttpStatus.OK);
-    }
-
-    private static String getSerialized(SuggestionsAreMade suggestionsMade) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
-                .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(suggestionsMade);
+    public ResponseEntity<String> makeSuggestions(@RequestParam String showId, @RequestParam int party) {
+        return new ResponseEntity<>(hexagon.makeSuggestions(showId, party), HttpStatus.OK);
     }
 }

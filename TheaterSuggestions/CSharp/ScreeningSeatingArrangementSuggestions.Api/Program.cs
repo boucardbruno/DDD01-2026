@@ -1,9 +1,8 @@
+using SeatingArrangement.Api.Controller;
 using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
-using SeatsSuggestions;
 using SeatsSuggestions.DrivingPort;
-using SeatsSuggestions.Tests.AcceptanceTests;
 
 namespace SeatingArrangement.Api;
 
@@ -12,7 +11,7 @@ public static class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        
+
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
 
@@ -23,11 +22,7 @@ public static class Program
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/openapi/v1.json", "version 1");
-
-            });
+            app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "version 1"); });
             app.UseDeveloperExceptionPage();
         }
 
@@ -37,9 +32,11 @@ public static class Program
         app.Run();
     }
 
-    private static ISeatingArrangementRecommenderSuggestions BuildSeatingArrangementRecommender() =>
-        new Hexagon(
+    private static ISeatingArrangementRecommenderSuggestions BuildSeatingArrangementRecommender()
+    {
+        return new Hexagon(
             new AuditoriumSeatingArrangementAdapter(
-                new AuditoriumLayoutRepositoryAdapter(), 
+                new AuditoriumLayoutRepositoryAdapter(),
                 new ReservationsProviderAdapter()));
+    }
 }

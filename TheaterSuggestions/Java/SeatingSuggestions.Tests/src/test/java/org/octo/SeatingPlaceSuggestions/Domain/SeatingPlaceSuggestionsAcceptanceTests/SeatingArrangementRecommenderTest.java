@@ -25,9 +25,9 @@ class SeatingArrangementRecommenderTest {
         //  B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         final ShowID showId = new ShowID("1");
         final PartyRequested partyRequested = new PartyRequested(1);
-
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
+
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
         var suggestionsAreMade = seatingArrangementRecommender.makeSuggestions(showId, partyRequested);
 
@@ -42,7 +42,6 @@ class SeatingArrangementRecommenderTest {
         // B : (2) (2) (1) (1) (1) (1) (1) (1) (2) (2)
         final ShowID showId = new ShowID("5");
         final PartyRequested partyRequested = new PartyRequested(1);
-
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
@@ -62,14 +61,13 @@ class SeatingArrangementRecommenderTest {
         //  B: 2   2   1   1   1   1   1   1   2   2
         final ShowID showId = new ShowID("17");
         final PartyRequested partyRequested = new PartyRequested(2);
-
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
 
         var suggestionsAreMade = seatingArrangementRecommender.makeSuggestions(showId, partyRequested);
 
-        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A5","A6","A3","A4","A7","A8");
+        assertThat(suggestionsAreMade.seatNames(PricingCategory.FIRST)).containsExactly("A5", "A6", "A3", "A4", "A7", "A8");
         assertThat(suggestionsAreMade.seatNames(PricingCategory.SECOND)).containsExactly("A1", "A2", "A9", "A10", "B1", "B2");
     }
 
@@ -85,7 +83,6 @@ class SeatingArrangementRecommenderTest {
         //  F: 3   3   3   3   3   3   3   3   3   3
         final ShowID showId = new ShowID("18");
         final PartyRequested partyRequested = new PartyRequested(1);
-
         var auditoriumSeatingArrangements =
                 new AuditoriumSeatingArrangementsAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);

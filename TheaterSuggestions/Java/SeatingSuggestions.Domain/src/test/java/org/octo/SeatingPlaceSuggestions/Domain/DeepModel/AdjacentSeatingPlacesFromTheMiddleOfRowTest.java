@@ -1,11 +1,11 @@
 package org.octo.SeatingPlaceSuggestions.Domain.DeepModel;
 
 import org.junit.jupiter.api.Test;
+import org.octo.SeatingPlaceSuggestions.Domain.DeepModel.middleoftherow.TheMiddleOfTheRow;
 import org.octo.SeatingPlaceSuggestions.Domain.PricingCategory;
 import org.octo.SeatingPlaceSuggestions.Domain.Row;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlaceAvailability;
-import org.octo.SeatingPlaceSuggestions.Domain.DeepModel.middleoftherow.TheMiddleOfTheRow;
 
 import java.util.Arrays;
 import java.util.Comparator;

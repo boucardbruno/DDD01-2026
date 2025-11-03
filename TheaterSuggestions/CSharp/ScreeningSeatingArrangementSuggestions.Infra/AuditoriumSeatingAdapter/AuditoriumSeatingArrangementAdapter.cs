@@ -20,20 +20,18 @@ public class AuditoriumSeatingArrangementAdapter(
         var rows = new Dictionary<string, Row>();
 
         foreach (var rowDto in auditoriumDto.Rows!)
+        foreach (var seatDto in rowDto.Value)
         {
-            foreach (var seatDto in rowDto.Value)
-            {
-                var rowName = ExtractRowName(seatDto.Name);
-                var number = ExtractNumber(seatDto.Name);
-                var pricingCategory = ConvertCategory(seatDto.Category);
+            var rowName = ExtractRowName(seatDto.Name);
+            var number = ExtractNumber(seatDto.Name);
+            var pricingCategory = ConvertCategory(seatDto.Category);
 
-                var isReserved = reservedSeatsDto!.ReservedSeats.Contains(seatDto.Name);
+            var isReserved = reservedSeatsDto!.ReservedSeats.Contains(seatDto.Name);
 
-                if (!rows.ContainsKey(rowName)) rows[rowName] = new Row(rowName, []);
+            if (!rows.ContainsKey(rowName)) rows[rowName] = new Row(rowName, []);
 
-                rows[rowName].SeatingPlaces.Add(new SeatingPlace(rowName, number, pricingCategory,
-                    isReserved ? SeatingPlaceAvailability.Reserved : SeatingPlaceAvailability.Available));
-            }
+            rows[rowName].SeatingPlaces.Add(new SeatingPlace(rowName, number, pricingCategory,
+                isReserved ? SeatingPlaceAvailability.Reserved : SeatingPlaceAvailability.Available));
         }
 
         return new AuditoriumSeatingArrangement(rows);

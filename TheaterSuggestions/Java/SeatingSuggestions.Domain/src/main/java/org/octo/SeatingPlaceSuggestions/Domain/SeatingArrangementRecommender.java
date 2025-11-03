@@ -1,34 +1,12 @@
 package org.octo.SeatingPlaceSuggestions.Domain;
 
 import org.octo.SeatingPlaceSuggestions.Domain.DrivenPort.IProvideAuditoriumSeatingArrangements;
-import org.octo.SeatingPlaceSuggestions.Domain.DrivingPort.IProvideSeatingArrangementRecommenderSuggestions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeatingArrangementRecommender implements IProvideSeatingArrangementRecommenderSuggestions {
+public record SeatingArrangementRecommender(IProvideAuditoriumSeatingArrangements auditoriumSeatingArrangements) {
     private static final int NUMBER_OF_SUGGESTIONS = 3;
-    private final IProvideAuditoriumSeatingArrangements auditoriumSeatingArrangements;
-
-    public SeatingArrangementRecommender(IProvideAuditoriumSeatingArrangements auditoriumSeatingArrangements) {
-        this.auditoriumSeatingArrangements = auditoriumSeatingArrangements;
-    }
-
-    @Override
-    public SuggestionsAreMade makeSuggestions(ShowID showId, PartyRequested partyRequested) {
-
-        var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
-
-        var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
-
-        for (var pricingCategory : PricingCategory.values()) {
-            suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
-        }
-
-        if (suggestionsMade.matchExpectations()) return suggestionsMade;
-
-        return new SuggestionsAreAreNotAvailable(showId, partyRequested);
-    }
 
     private static List<SuggestionIsMade> giveMeSuggestionsFor(
             AuditoriumSeatingArrangement auditoriumSeatingArrangement,
@@ -48,5 +26,20 @@ public class SeatingArrangementRecommender implements IProvideSeatingArrangement
         }
 
         return foundedSuggestions;
+    }
+
+    public SuggestionsAreMade makeSuggestions(ShowID showId, PartyRequested partyRequested) {
+
+        var auditoriumSeating = auditoriumSeatingArrangements.findByShowId(showId);
+
+        var suggestionsMade = new SuggestionsAreMade(showId, partyRequested);
+
+        for (var pricingCategory : PricingCategory.values()) {
+            suggestionsMade.add(giveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
+        }
+
+        if (suggestionsMade.matchExpectations()) return suggestionsMade;
+
+        return new SuggestionsAreAreNotAvailable(showId, partyRequested);
     }
 }

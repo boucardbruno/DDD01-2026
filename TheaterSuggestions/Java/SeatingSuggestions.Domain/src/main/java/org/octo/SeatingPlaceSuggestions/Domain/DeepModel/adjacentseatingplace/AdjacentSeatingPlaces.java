@@ -1,9 +1,9 @@
 package org.octo.SeatingPlaceSuggestions.Domain.DeepModel.adjacentseatingplace;
 
+import org.octo.SeatingPlaceSuggestions.Domain.DeepModel.SeatingPlaceWithDistance;
 import org.octo.SeatingPlaceSuggestions.Domain.PricingCategory;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
 import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlaceAvailability;
-import org.octo.SeatingPlaceSuggestions.Domain.DeepModel.SeatingPlaceWithDistance;
 
 import java.util.ArrayList;
 import java.util.Comparator;

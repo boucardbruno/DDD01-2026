@@ -1,5 +1,6 @@
 ﻿using NFluent;
 using NUnit.Framework;
+using SeatingArrangement.Api.Controller;
 using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
@@ -20,9 +21,10 @@ public class SeatingArrangementRecommenderShould
         var showId = new ShowId("1");
         var partyRequested = new PartyRequested(1);
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
+            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(),
+                new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-        
+
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
         Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A3");
@@ -39,9 +41,10 @@ public class SeatingArrangementRecommenderShould
         var showId = new ShowId("5");
         var partyRequested = new PartyRequested(1);
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
+            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(),
+                new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-        
+
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
         Check.That(suggestionsAreMade.PartyRequested).IsEqualTo(partyRequested);
@@ -60,7 +63,8 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(2);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
+            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(),
+                new ReservationsProviderAdapter());
 
         var hexagon = new Hexagon(auditoriumSeatingArrangements);
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
@@ -68,7 +72,7 @@ public class SeatingArrangementRecommenderShould
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
         var seatNamesForFistCategory = suggestionsAreMade.SeatNames(PricingCategory.First);
-        Check.That(seatNamesForFistCategory).ContainsExactly("A5","A6","A3","A4","A7","A8");
+        Check.That(seatNamesForFistCategory).ContainsExactly("A5", "A6", "A3", "A4", "A7", "A8");
         var seatNamesForSecondCategory = suggestionsAreMade.SeatNames(PricingCategory.Second);
         Check.That(seatNamesForSecondCategory).ContainsExactly("A1", "A2", "A9", "A10", "B1", "B2");
     }
@@ -89,9 +93,10 @@ public class SeatingArrangementRecommenderShould
         var partyRequested = new PartyRequested(1);
 
         var auditoriumSeatingArrangements =
-            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(), new ReservationsProviderAdapter());
+            new AuditoriumSeatingArrangementAdapter(new AuditoriumLayoutRepositoryAdapter(),
+                new ReservationsProviderAdapter());
         var seatingArrangementRecommender = new SeatingArrangementRecommender(auditoriumSeatingArrangements);
-        
+
         var suggestionsAreMade = seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
 
         Check.That(suggestionsAreMade.SeatNames(PricingCategory.First)).ContainsExactly("A5", "A6", "A4");

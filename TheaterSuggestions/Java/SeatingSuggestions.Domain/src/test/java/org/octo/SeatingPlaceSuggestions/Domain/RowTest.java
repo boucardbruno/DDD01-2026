@@ -1,10 +1,6 @@
 package org.octo.SeatingPlaceSuggestions.Domain;
 
 import org.junit.jupiter.api.Test;
-import org.octo.SeatingPlaceSuggestions.Domain.PricingCategory;
-import org.octo.SeatingPlaceSuggestions.Domain.Row;
-import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlace;
-import org.octo.SeatingPlaceSuggestions.Domain.SeatingPlaceAvailability;
 
 import java.util.Arrays;
 

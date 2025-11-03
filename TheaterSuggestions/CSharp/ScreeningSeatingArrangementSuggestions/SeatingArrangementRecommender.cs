@@ -1,5 +1,4 @@
 ﻿using SeatsSuggestions.DrivenPort;
-using SeatsSuggestions.DrivingPort;
 
 namespace SeatsSuggestions;
 
@@ -16,9 +15,9 @@ public class SeatingArrangementRecommender(IAdaptAuditoriumSeating auditoriumSea
         foreach (var pricingCategory in Enum.GetValues<PricingCategory>())
             suggestionsMade.Add(GiveMeSuggestionsFor(auditoriumSeating, partyRequested, pricingCategory));
 
-        return suggestionsMade.MatchExpectations() ? 
-            suggestionsMade : 
-            new SuggestionsAreNotAvailable(showId, partyRequested);
+        return suggestionsMade.MatchExpectations()
+            ? suggestionsMade
+            : new SuggestionsAreNotAvailable(showId, partyRequested);
     }
 
     private static IEnumerable<SuggestionIsMade> GiveMeSuggestionsFor(

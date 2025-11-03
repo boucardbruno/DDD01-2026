@@ -1,10 +1,12 @@
 using Newtonsoft.Json;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
+using SeatsSuggestions;
 using SeatsSuggestions.DrivingPort;
 
-namespace SeatsSuggestions.Tests.AcceptanceTests;
+namespace SeatingArrangement.Api.Controller;
 
-public class Hexagon(AuditoriumSeatingArrangementAdapter auditoriumSeatingArrangements) : ISeatingArrangementRecommenderSuggestions
+public class Hexagon(AuditoriumSeatingArrangementAdapter auditoriumSeatingArrangements)
+    : ISeatingArrangementRecommenderSuggestions
 {
     private readonly SeatingArrangementRecommender _seatingArrangementRecommender = new(auditoriumSeatingArrangements);
 
@@ -13,9 +15,9 @@ public class Hexagon(AuditoriumSeatingArrangementAdapter auditoriumSeatingArrang
         // Infra => Domain
         var showId = new ShowId(id);
         var partyRequested = new PartyRequested(party);
-        
+
         var suggestionsAreMade = _seatingArrangementRecommender.MakeSuggestions(showId, partyRequested);
-        
+
         // Domain => Infra
         return JsonConvert.SerializeObject(suggestionsAreMade, Formatting.Indented);
     }

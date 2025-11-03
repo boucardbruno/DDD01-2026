@@ -1,7 +1,7 @@
 package org.octo.SeatingPlaceSuggestions.Domain.DeepModel.middleoftherow;
 
-import org.octo.SeatingPlaceSuggestions.Domain.Row;
 import org.octo.SeatingPlaceSuggestions.Domain.DeepModel.SeatingPlaceWithDistance;
+import org.octo.SeatingPlaceSuggestions.Domain.Row;
 
 import java.util.List;
 import java.util.stream.Stream;
