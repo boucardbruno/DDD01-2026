@@ -4,7 +4,6 @@ using SeatsSuggestions.DrivingPort;
 namespace SeatsSuggestions;
 
 public class SeatingArrangementRecommender(IAdaptAuditoriumSeating auditoriumSeatingArrangements)
-    : ISeatingArrangementRecommenderSuggestions
 {
     private const int NumberOfSuggestions = 3;
 

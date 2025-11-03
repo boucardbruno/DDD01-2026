@@ -3,6 +3,7 @@ using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
 using SeatsSuggestions;
 using SeatsSuggestions.DrivingPort;
+using SeatsSuggestions.Tests.AcceptanceTests;
 
 namespace SeatingArrangement.Api;
 
@@ -37,7 +38,7 @@ public static class Program
     }
 
     private static ISeatingArrangementRecommenderSuggestions BuildSeatingArrangementRecommender() =>
-        new SeatingArrangementRecommender(
+        new Hexagon(
             new AuditoriumSeatingArrangementAdapter(
                 new AuditoriumLayoutRepositoryAdapter(), 
                 new ReservationsProviderAdapter()));

@@ -15,13 +15,6 @@ public class SeatingArrangementController(
     [HttpGet]
     public IResult Get([FromQuery(Name = "showId")] string showId, [FromQuery(Name = "party")] int party)
     {
-        // Infra => Domain
-        var id = new ShowId(showId);
-        var partyRequested = new PartyRequested(party);
-        
-        var suggestionsMade = hexagon.MakeSuggestions(id, partyRequested);
-
-        // Domain => Infra
-        return Results.Ok(JsonConvert.SerializeObject(suggestionsMade, Formatting.Indented));
+        return Results.Ok(hexagon.MakeSuggestions(showId, party));
     }
 }

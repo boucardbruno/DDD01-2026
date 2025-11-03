@@ -2,5 +2,5 @@
 
 public interface ISeatingArrangementRecommenderSuggestions
 {
-    SuggestionsAreMade MakeSuggestions(ShowId showId, PartyRequested partyRequested);
+    string MakeSuggestions(string id, int party);
 }

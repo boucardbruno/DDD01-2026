@@ -5,6 +5,7 @@ using SeatingArrangement.Api.Controller;
 using SeatingSuggestions.Infra.AuditoriumLayoutRepository;
 using SeatingSuggestions.Infra.AuditoriumSeatingAdapter;
 using SeatingSuggestions.Infra.ReservationsProvider;
+using SeatsSuggestions.Tests.AcceptanceTests;
 
 namespace SeatsSuggestions.Tests.ControllerTests
 {
@@ -17,11 +18,10 @@ namespace SeatsSuggestions.Tests.ControllerTests
         {
              var auditoriumLayoutRepository = new AuditoriumLayoutRepositoryAdapter(); 
              var reservationsProvider = new ReservationsProviderAdapter();
+             
+             var auditoriumSeatingArrangementAdapter = new AuditoriumSeatingArrangementAdapter(auditoriumLayoutRepository, reservationsProvider);
 
-             var seatingArrangementRecommender = new SeatingArrangementRecommender(
-                 new AuditoriumSeatingArrangementAdapter(auditoriumLayoutRepository, reservationsProvider));
-
-             _controller = new SeatingArrangementController(seatingArrangementRecommender);
+             _controller = new SeatingArrangementController(new Hexagon(auditoriumSeatingArrangementAdapter));
         }
 
         [Test]
