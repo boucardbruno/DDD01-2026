@@ -34,9 +34,11 @@ public static class Program
 
     private static ISeatingArrangementRecommenderSuggestions BuildSeatingArrangementRecommender()
     {
+        // Anti-Corruption Layer (ACL)
+        var auditoriumSeatingArrangementAdapter = new AuditoriumSeatingArrangementAdapter(
+            new AuditoriumLayoutRepositoryAdapter(),
+            new ReservationsProviderAdapter());
         return new Hexagon(
-            new AuditoriumSeatingArrangementAdapter(
-                new AuditoriumLayoutRepositoryAdapter(),
-                new ReservationsProviderAdapter()));
+            auditoriumSeatingArrangementAdapter);
     }
 }
