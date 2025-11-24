@@ -1,4 +1,4 @@
-# DDD02 : Domain-Driven Design Avancé
+# DDD01 : Domain-Driven Design
 
 Appliquer collaborativement le design stratégique et tactique du problème à la solution.
 
@@ -29,9 +29,3 @@ Cette formation de deux jours couvre les concepts fondamentaux du DDD et son app
 - Introduction au **Model-Driven Design** et au **Supple Design**
 - Intégration de règles métier complexes dans le code
 - **Deep Modeling** pour refléter fidèlement les réalités et règles du domaine
-
-### Module 4 – Hexagonal Architecture
-
-- Réorganisation du code pour isoler le domaine de l'infrastructure.
-- Intégration des patterns au sein des services.
-- Service prêt pour la mise en production.
