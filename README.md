@@ -9,18 +9,17 @@ Le Domain-Driven Design (DDD) offre une approche méthodologique centrée sur la
 Cette formation de deux jours couvre les concepts fondamentaux du DDD et son application tout au long du cycle de développement logiciel.
 
 ### Module 1 – Découverte du domaine métier
-Introduction au Domain-Driven Design
-Exploration du problème avec un Event Storming Big Picture
-Découpage en sous-domaines et création d'une Context Map
+- Introduction au **Domain-Driven Design**
+- Exploration du problème avec un **Event Storming Big Picture**
+- Découpage en **sous-domaines** et création d'une Context Map
 
 ### Module 2 - Esquisser et explorer le modèle initial
-Transition de l'Event Storming Big Picture à l'Event Storming Software Design
-Découverte des critères d'acceptation avec l'Example Mapping
-Création du premier modèle avec les cartes CRC
-Émergence des patterns tactiques du modèle
-Exploration du modèle naïf via le TDD Outside-in
+- Découverte des **critères d'acceptation** avec l'**Example Mapping**
+- Création du premier modèle avec les cartes CRC
+- Émergence des **patterns tactiques** du modèle
+- Exploration du **modèle naïf** via le TDD Outside-in
 
 ### Module 3 – Model-Driven Design
-Introduction au Model-Driven Design et au Supple Design
-Intégration de règles métier complexes dans le code
-Deep Modeling pour refléter fidèlement les réalités et règles du domaine
+- Introduction au **Model-Driven Design** et au Supple Design
+- Intégration de **règles métier complexes** dans le code
+- **Deep Modeling** pour refléter fidèlement les réalités et règles du domaine
