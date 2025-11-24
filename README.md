@@ -1,4 +1,4 @@
-# DDD02 : Domain-Driven Design Avancé
+# DDD01 : Domain-Driven Design
 
 Appliquer collaborativement le design stratégique et tactique du problème à la solution.
 
