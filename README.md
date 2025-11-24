@@ -15,7 +15,7 @@ Cette formation de deux jours couvre les concepts fondamentaux du DDD et son app
 
 ### Module 2 - Esquisser et explorer le modèle initial
 - Découverte des **critères d'acceptation** avec l'**Example Mapping**
-- Création du premier modèle avec les cartes CRC
+- Création du premier modèle avec les **cartes CRC**
 - Émergence des **patterns tactiques** du modèle
 - Exploration du **modèle naïf** via le TDD Outside-in
 
