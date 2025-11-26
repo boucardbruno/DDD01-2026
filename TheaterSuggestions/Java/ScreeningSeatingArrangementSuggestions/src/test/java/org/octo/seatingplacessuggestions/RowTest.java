@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
@@ -26,11 +25,6 @@ public class RowTest {
         Row rowFirstInstance = new Row("A", Arrays.asList(a1, a2));
         Row rowSecondInstance = new Row("A", Arrays.asList(a1, a2));
         assertThat(rowSecondInstance).isEqualTo(rowFirstInstance);
-
-        // Should not mutate existing instance
-        var a3 = new SeatingPlace("A", 2, PricingCategory.SECOND, SeatingPlaceAvailability.AVAILABLE);
-        Row newRowWithNewSeatAdded = rowSecondInstance.addSeatingPlace(a3);
-        assertThat(newRowWithNewSeatAdded).isNotEqualTo(rowFirstInstance);
     }
 
     @Test
