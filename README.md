@@ -1,10 +1,10 @@
-# DDD01 : Domain-Driven Design
-Appliquer collaborativement le design stratégique et tactique du problème à la solution.
+# DDD 2026: Domain-Driven Design
+Appliquer, de manière collaborative, le design stratégique et tactique du problème à la solution.
 
 ### Description
-Dans de nombreux projets, les choix techniques précèdent souvent une compréhension approfondie des besoins métier, bien que le logiciel soit avant tout conçu pour résoudre des problèmes métier. La transition entre les découvertes métier, comme l'Event Storming, et le code soulève des questions pour beaucoup.
+Dans de nombreux projets, les choix techniques précèdent souvent une compréhension approfondie des besoins métier, bien que le logiciel soit avant tout conçu pour résoudre des problèmes métier. La transition entre les découvertes métier, telles que l'Event Storming, et le code soulève des questions pour beaucoup.
 
-Le Domain-Driven Design (DDD) offre une approche méthodologique centrée sur la modélisation des systèmes selon la complexité des domaines métiers, particulièrement adaptée aux projets complexes.
+Le Domain-Driven Design (DDD) offre une approche méthodologique centrée sur la modélisation des systèmes en fonction de la complexité des domaines métier, particulièrement adaptée aux projets complexes.
 
 Cette formation de deux jours couvre les concepts fondamentaux du DDD et son application tout au long du cycle de développement logiciel.
 
@@ -22,4 +22,8 @@ Cette formation de deux jours couvre les concepts fondamentaux du DDD et son app
 ### Module 3 – Model-Driven Design
 - Introduction au **Model-Driven Design** et au Supple Design
 - Intégration de **règles métier complexes** dans le code
+- **Deep Modeling** pour refléter fidèlement les réalités et règles du domaine
+
+- Introduction au **Model-Driven Design** et au **Supple Design**
+- Intégration de règles métier complexes dans le code
 - **Deep Modeling** pour refléter fidèlement les réalités et règles du domaine
