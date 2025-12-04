@@ -1,4 +1,4 @@
-# DDD 2026: Domain-Driven Design
+# FXDDD: Domain-Driven Design
 Appliquer, de manière collaborative, le design stratégique et tactique du problème à la solution.
 
 ### Description
